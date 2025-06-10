@@ -325,9 +325,14 @@ function changePalette(paletteName) {
 }
 
 function toggleChatbot() {
-    const panel = document.getElementById('chatbotPanel');
-    panel.classList.toggle('active');
+    const chatbot = document.getElementById('chatbotPanel');
+    if (chatbot.style.display === 'block') {
+        chatbot.style.display = 'none';
+    } else {
+        chatbot.style.display = 'block';
+    }
 }
+
 
 function createMessageElement(text, fromUser = false) {
     const div = document.createElement('div');
@@ -391,7 +396,7 @@ function getBotResponse(message) {
   // Despedidas
   if (/(adios|chao|hasta luego|nos vemos|bye|nos vemo|nos vem|bye bye)/.test(lower)) {
     return randomResp([
-      '¡Gracias por visitar CUCEI MART! Vuelve cuando quieras, estaré aquí para ayudarte.',
+      '¡Gracias por visitar CUCEI Emprende! Vuelve cuando quieras, estaré aquí para ayudarte.',
       '¡Hasta pronto! Que tengas un excelente día.',
       'Nos vemos pronto, y recuerda que puedes regresar si necesitas algo.',
     ]);

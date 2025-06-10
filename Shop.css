@@ -893,8 +893,8 @@
 
 .chatbot-panel {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  top: 50%;
+  left: 50%;
   width: 320px;
   max-height: 400px;
   background: linear-gradient(
@@ -908,14 +908,14 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transform: translateY(110%);
+  transform: translate(-50%, 110%);
   transition: transform 0.3s ease;
   z-index: 9999;
   color: #e0e6f0;  /* texto claro y suave */
 }
 
 .chatbot-panel.active {
-  transform: translateY(0);
+  transform: translate(-50%, -50%);
 }
 
 .chatbot-messages {
@@ -970,4 +970,8 @@
 
 #chatbotSendBtn:hover {
   background: #357abd; /* azul un poco más oscuro al pasar el mouse */
+}
+
+.chatbot-panel {
+    display: none; /* Oculto al inicio */
 }
