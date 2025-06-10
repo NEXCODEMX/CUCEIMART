@@ -3,729 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CUCEI Market - Tu Marketplace Universitario</title>
+    <title>CUCEI MART - Tu punto de emprendimiento</title>
+    <link rel="stylesheet" href="Shop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            min-height: 100vh;
-        }
-
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .nav-icon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .search-section {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .search-title {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .search-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            margin-bottom: 2rem;
-        }
-
-        .search-box {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            font-size: 1.1rem;
-            border: 2px solid #e0e7ff;
-            border-radius: 50px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #667eea;
-            font-size: 1.2rem;
-        }
-
-        .filter-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-        }
-
-        .filter-btn {
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #e0e7ff;
-            background: white;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border-color: transparent;
-            transform: translateY(-2px);
-        }
-
-        .banner-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .banner-title {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .banner-content {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .banner-slide.active {
-            opacity: 1;
-        }
-
-        .businesses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .business-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-        }
-
-        .business-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
-
-        .business-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 15px;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .business-name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .business-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .business-category {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .business-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .business-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .notification-popup {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-            display: none;
-            min-width: 300px;
-        }
-
-        .notification-popup.show {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .notification-item {
-            padding: 0.8rem;
-            border-bottom: 1px solid #e0e7ff;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .notification-item:last-child {
-            border-bottom: none;
-        }
-
-        .footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            color: #666;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .nav-icons {
-                gap: 1rem;
-            }
-
-            .nav-icon {
-                width: 40px;
-                height: 40px;
-            }
-
-            .main-container {
-                padding: 1rem;
-            }
-
-            .search-title {
-                font-size: 2rem;
-            }
-
-            .search-container {
-                padding: 1.5rem;
-            }
-
-            .businesses-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .filter-container {
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .notification-popup {
-                right: 10px;
-                min-width: calc(100vw - 20px);
-            }
-        }
-              /* Variables CSS para las paletas de colores */
-        :root {
-            /* Paleta por defecto (Púrpura-Azul) */
-            --primary-start: #667eea;
-            --primary-end: #764ba2;
-            --accent-color: #5a67d8;
-            --text-primary: #333;
-            --text-secondary: #666;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(102, 126, 234, 0.4);
-            --border-color: #e0e7ff;
-        }
-
-        /* Paleta Océano */
-        [data-palette="ocean"] {
-            --primary-start: #667eea;
-            --primary-end: #764ba2;
-            --accent-color: #4299e1;
-            --text-primary: #2d3748;
-            --text-secondary: #4a5568;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(66, 153, 225, 0.4);
-            --border-color: #bee3f8;
-        }
-
-        /* Paleta Sunset */
-        [data-palette="sunset"] {
-            --primary-start: #ff6b6b;
-            --primary-end: #ffa726;
-            --accent-color: #ff7043;
-            --text-primary: #2d1b14;
-            --text-secondary: #5d4037;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(255, 112, 67, 0.4);
-            --border-color: #ffccbc;
-        }
-
-        /* Paleta Forest */
-        [data-palette="forest"] {
-            --primary-start: #4caf50;
-            --primary-end: #2e7d32;
-            --accent-color: #388e3c;
-            --text-primary: #1b5e20;
-            --text-secondary: #2e7d32;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(76, 175, 80, 0.4);
-            --border-color: #c8e6c9;
-        }
-
-        /* Paleta Neon */
-        [data-palette="neon"] {
-            --primary-start: #00bcd4;
-            --primary-end: #e91e63;
-            --accent-color: #ff4081;
-            --text-primary: #212121;
-            --text-secondary: #424242;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(255, 64, 129, 0.4);
-            --border-color: #f8bbd9;
-        }
-
-        /* Paleta Dark */
-        [data-palette="dark"] {
-            --primary-start: #424242;
-            --primary-end: #212121;
-            --accent-color: #616161;
-            --text-primary: #ffffff;
-            --text-secondary: #bdbdbd;
-            --background-overlay: rgba(33, 33, 33, 0.95);
-            --shadow-color: rgba(97, 97, 97, 0.4);
-            --border-color: #616161;
-        }
-
-        /* Paleta Royal */
-        [data-palette="royal"] {
-            --primary-start: #9c27b0;
-            --primary-end: #673ab7;
-            --accent-color: #8e24aa;
-            --text-primary: #4a148c;
-            --text-secondary: #6a1b9a;
-            --background-overlay: rgba(255, 255, 255, 0.95);
-            --shadow-color: rgba(156, 39, 176, 0.4);
-            --border-color: #e1bee7;
-        }
-
-        [data-palette="rosenight"] {
-            --primary-start: #1c3a66;         
-            --primary-end: #b73064;           
-            --accent-color: #f4b5cf;         
-            --text-primary: #1c3a66;          
-            --text-secondary: #b73064;        
-            --background-overlay: rgba(250, 255, 252, 0.95); 
-            --shadow-color: rgba(183, 48, 100, 0.25);        
-            --border-color: #f4b5cf;
-            --highlight-color: #fafffc;      
-        }
-        [data-palette="greenroots"] {
-            --primary-start: #132a13;           /* Verde oscuro natural */
-            --primary-end: #31572c;             /* Verde bosque más claro */
-            --accent-color: #4f772d;            /* Verde helecho como acción */
-            --text-primary: #ecf39e;            /* Texto claro y vibrante */
-            --text-secondary: #90a955;          /* Verde musgo para descripciones */
-            --background-overlay: rgba(19, 42, 19, 0.95);    /* Fondo profundo */
-            --shadow-color: rgba(144, 169, 85, 0.3);         /* Sombra musgo */
-            --border-color: #4f772d;
-            --highlight-color: #ecf39e;         /* Verde claro como énfasis */
-        }
-
-        /* Aplicar las variables a los elementos existentes */
-        body {
-            background: linear-gradient(135deg, var(--primary-start) 0%, var(--primary-end) 100%);
-        }
-
-        .header {
-            background: var(--background-overlay);
-        }
-
-        .logo {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-icon {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .nav-icon:hover {
-            box-shadow: 0 8px 25px var(--shadow-color);
-        }
-
-        .search-container {
-            background: var(--background-overlay);
-        }
-
-        .search-input {
-            border-color: var(--border-color);
-        }
-
-        .search-input:focus {
-            border-color: var(--primary-start);
-            box-shadow: 0 0 0 4px var(--shadow-color);
-        }
-
-        .search-icon {
-            color: var(--primary-start);
-        }
-
-        .filter-btn {
-            border-color: var(--border-color);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .banner-container {
-            background: var(--background-overlay);
-        }
-
-        .banner-content {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .business-card {
-            background: var(--background-overlay);
-            color: var(--text-primary);
-        }
-
-        .business-image {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .business-category {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .business-btn {
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-        }
-
-        .business-btn:hover {
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-
-        .notification-popup {
-            background: var(--background-overlay);
-        }
-
-        .footer {
-            background: var(--background-overlay);
-        }
-
-        /* Estilos para el selector de paleta */
-        .palette-switcher {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            z-index: 1002;
-        }
-
-        .palette-trigger {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 20px var(--shadow-color);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .palette-trigger:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px var(--shadow-color);
-        }
-
-        .palette-popup {
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: var(--background-overlay);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            display: none;
-            min-width: 280px;
-        }
-
-        .palette-popup.show {
-            display: block;
-            animation: fadeInUp 0.3s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .palette-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .palette-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-        }
-
-        .palette-option {
-            padding: 0.8rem;
-            border: 2px solid transparent;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 500;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .palette-option:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .palette-option.active {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 2px var(--shadow-color);
-        }
-
-        .palette-preview {
-            width: 100%;
-            height: 30px;
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Paletas específicas para preview */
-        .palette-option[data-palette="ocean"] .palette-preview {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .palette-option[data-palette="sunset"] .palette-preview {
-            background: linear-gradient(45deg, #ff6b6b, #ffa726);
-        }
-
-        .palette-option[data-palette="forest"] .palette-preview {
-            background: linear-gradient(45deg, #4caf50, #2e7d32);
-        }
-
-        .palette-option[data-palette="neon"] .palette-preview {
-            background: linear-gradient(45deg, #00bcd4, #e91e63);
-        }
-
-        .palette-option[data-palette="dark"] .palette-preview {
-            background: linear-gradient(45deg, #424242, #212121);
-        }
-
-        .palette-option[data-palette="royal"] .palette-preview {
-            background: linear-gradient(45deg, #9c27b0, #673ab7);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .palette-switcher {
-                top: 70px;
-                right: 10px;
-            }
-
-            .palette-popup {
-                min-width: calc(100vw - 40px);
-                right: -10px;
-            }
-
-            .palette-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="icon" href="img/CUCEIMART.jpg" type="image/jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <i class="fas fa-store"></i> CUCEI Market
+                <img src="img/CUCEIMART.jpg" alt="Logo CuceiMart" class="logo-img">
+                <span class="logo-text">CUCEI MART</span>
             </div>
             <nav class="nav-icons">
                 <a href="IniciarSesion.html" class="nav-icon" title="Iniciar Sesión">
@@ -743,121 +32,144 @@
                 <a href="soporte.html" class="nav-icon" title="Soporte Técnico">
                     <i class="fas fa-headset"></i>
                 </a>
-                     <div class="palette-switcher">
-                    <button class="palette-trigger" onclick="togglePalette()" title="Cambiar Paleta de Colores">
-                        <i class="fas fa-palette"></i>
-                    </button>
-                    
-                    <div class="palette-popup" id="palettePopup">
-                        <h3 class="palette-title">
-                            <i class="fas fa-palette"></i> Paletas de Colores
-                        </h3>
-                        <div class="palette-grid">
-                            <div class="palette-option active" data-palette="ocean" onclick="changePalette('ocean')">
-                                <div class="palette-preview"></div>
-                                <span>Océano</span>
-                            </div>
-                            <div class="palette-option" data-palette="sunset" onclick="changePalette('sunset')">
-                                <div class="palette-preview"></div>
-                                <span>Atardecer</span>
-                            </div>
-                            <div class="palette-option" data-palette="forest" onclick="changePalette('forest')">
-                                <div class="palette-preview"></div>
-                                <span>Bosque</span>
-                            </div>
-                            <div class="palette-option" data-palette="neon" onclick="changePalette('neon')">
-                                <div class="palette-preview"></div>
-                                <span>Neón</span>
-                            </div>
-                            <div class="palette-option" data-palette="dark" onclick="changePalette('dark')">
-                                <div class="palette-preview"></div>
-                                <span>Oscuro</span>
-                            </div>
-                            <div class="palette-option" data-palette="royal" onclick="changePalette('royal')">
-                                <div class="palette-preview"></div>
-                                <span>Real</span>
-                            </div>
-                            <div class="palette-option" data-palette="rosenight" onclick="changePalette('rosenight')">
-                                <div class="palette-preview"></div>
-                                <span>RoseNight</span>
-                            </div>
-                            <div class="palette-option" data-palette="greenroots" onclick="changePalette('greenroots')">
-                                <div class="palette-preview"></div>
-                                <span>GreenRoots</span>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Paleta de colores -->
+                <div class="nav-icon palette-trigger" onclick="togglePalette()" title="Cambiar Paleta de Colores">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <!-- Chatbot ícono -->
+                <div class="nav-icon" onclick="toggleChatbot()" title="Asistente CUCEI">
+                    <i class="fas fa-comments"></i>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main class="main-container">
+    <!-- Ventana emergente de la paleta de colores -->
+    <div class="palette-popup" id="palettePopup">
+        <h3 class="palette-title">
+            <i class="fas fa-palette"></i> Paletas de Colores
+        </h3>
+        <div class="palette-grid">
+            <div class="palette-option active" data-palette="ocean" onclick="changePalette('ocean')">
+                <div class="palette-preview"></div>
+                <span>Océano</span>
+            </div>
+            <div class="palette-option" data-palette="sunset" onclick="changePalette('sunset')">
+                <div class="palette-preview"></div>
+                <span>Atardecer</span>
+            </div>
+            <div class="palette-option" data-palette="forest" onclick="changePalette('forest')">
+                <div class="palette-preview"></div>
+                <span>Bosque</span>
+            </div>
+            <div class="palette-option" data-palette="neon" onclick="changePalette('neon')">
+                <div class="palette-preview"></div>
+                <span>Neón</span>
+            </div>
+            <div class="palette-option" data-palette="dark" onclick="changePalette('dark')">
+                <div class="palette-preview"></div>
+                <span>Oscuro</span>
+            </div>
+            <div class="palette-option" data-palette="royal" onclick="changePalette('royal')">
+                <div class="palette-preview"></div>
+                <span>Real</span>
+            </div>
+            <div class="palette-option" data-palette="rosenight" onclick="changePalette('rosenight')">
+                <div class="palette-preview"></div>
+                <span>RoseNight</span>
+            </div>
+            <div class="palette-option" data-palette="greenroots" onclick="changePalette('greenroots')">
+                <div class="palette-preview"></div>
+                <span>GreenRoots</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel del Chatbot -->
+    <div class="chatbot-panel" id="chatbotPanel">
+        <div class="chatbot-header">
+            <i class="fas fa-robot"></i> Asistente CUCEI
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chatbot-message">
+                ¡Hola! Soy el asistente de CUCEI MART. ¿En qué puedo ayudarte?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Escribe tu mensaje..." id="chatbotInput" onkeypress="handleChatbotInput(event)">
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL (puedes dejar tu main aquí) -->
+   <main class="main-container">
         <section class="search-section">
-            <h1 class="search-title">Descubre Emprendimientos CUCEI</h1>
-            
+            <h1 class="search-title">Tu punto de emprendimiento</h1>
             <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
                     <input type="text" class="search-input" id="searchInput" 
                            placeholder="Busca productos, servicios o emprendedores...">
                 </div>
-                
                 <div class="filter-container">
                     <button class="filter-btn active" data-category="todos">
-                        <i class="fas fa-th-large"></i> Todos
-                    </button>
-                    <button class="filter-btn" data-category="comida">
-                        <i class="fas fa-utensils"></i> Comida
-                    </button>
-                    <button class="filter-btn" data-category="ropa">
-                        <i class="fas fa-tshirt"></i> Ropa
-                    </button>
-                    <button class="filter-btn" data-category="accesorios">
-                        <i class="fas fa-gem"></i> Accesorios
-                    </button>
-                    <button class="filter-btn" data-category="servicios">
-                        <i class="fas fa-cogs"></i> Servicios
-                    </button>
-                    <button class="filter-btn" data-category="decoraciones">
-                        <i class="fas fa-palette"></i> Decoraciones
-                    </button>
-                    <button class="filter-btn" data-category="videojuegos">
-                        <i class="fas fa-gamepad"></i> Videojuegos
-                    </button>
+                    <i class="fas fa-th-large"></i> Todos
+                </button>
+                <button class="filter-btn" data-category="comida">
+                    <i class="fas fa-utensils"></i> Alimentos
+                </button>
+                <button class="filter-btn" data-category="ropa">
+                    <i class="fas fa-tshirt"></i> Ropa
+                </button>
+                <button class="filter-btn" data-category="accesorios">
+                    <i class="fas fa-gem"></i> Accesorios
+                </button>
+                <button class="filter-btn" data-category="cosmeticos">
+                    <i class="fas fa-magic"></i> Cosméticos
+                </button>
+                <button class="filter-btn" data-category="decoraciones">
+                    <i class="fas fa-palette"></i> Decoraciones
+                </button>
+                <button class="filter-btn" data-category="mascotas">
+                    <i class="fas fa-paw"></i> Mascotas
+                </button>
+                <button class="filter-btn" data-category="vapes">
+                    <i class="fas fa-smoking"></i> Vapes
+                </button>
+                <button class="filter-btn" data-category="videojuegos">
+                    <i class="fas fa-gamepad"></i> Videojuegos
+                </button>
+                <button class="filter-btn" data-category="tecnologia">
+                    <i class="fas fa-laptop"></i> Tecnología
+                </button>
+                <button class="filter-btn" data-category="servicios">
+                    <i class="fas fa-tools"></i> Servicios
+                </button>
                 </div>
+            </div>
+        </section>
+        <section class="banner-container">
+            <h2 class="banner-title">Emprendedores Destacados</h2>
+            <div class="banner-content" id="bannerContent">
+                <a href="https://negocio1.com" class="banner-slide active" target="_blank" rel="noopener noreferrer">
+                    <img src="img/negocio1.jpg" alt="Negocio 1">
+                    <h3>Negocio 1</h3>
+                    <p>Productos artesanales y únicos</p>
+                </a>
+                <a href="https://negocio2.com" class="banner-slide" target="_blank" rel="noopener noreferrer">
+                    <img src="img/negocio2.jpg" alt="Negocio 2">
+                    <h3>Negocio 2</h3>
+                    <p>Innovación tecnológica al alcance</p>
+                </a>
+                <a href="https://negocio3.com" class="banner-slide" target="_blank" rel="noopener noreferrer">
+                    <img src="img/negocio3.jpg" alt="Negocio 3">
+                    <h3>Negocio 3</h3>
+                    <p>Moda sustentable y con estilo</p>
+                </a>
             </div>
         </section>
 
-        <section class="banner-container">
-            <h2 class="banner-title">🌟 Emprendedores Destacados</h2>
-            <div class="banner-content">
-                <div class="banner-slide active">
-                    <div>
-                        <i class="fas fa-star" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3>¡Apoya a los emprendedores del CUCEI!</h3>
-                        <p>Descubre productos únicos y servicios innovadores</p>
-                    </div>
-                </div>
-                <div class="banner-slide">
-                    <div>
-                        <i class="fas fa-rocket" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3>Nuevos emprendimientos cada semana</h3>
-                        <p>Mantente al día con las últimas novedades</p>
-                    </div>
-                </div>
-                <div class="banner-slide">
-                    <div>
-                        <i class="fas fa-heart" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3>Hecho por estudiantes, para estudiantes</h3>
-                        <p>Calidad garantizada y precios accesibles</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section class="businesses-grid" id="businessesGrid">
-            <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
         </section>
     </main>
 
@@ -889,391 +201,25 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; 2025 CUCEI Market - Todos los derechos reservados.</p>
-        <p>Plataforma universitaria para emprendedores del Centro Universitario de Ciencias Exactas e Ingenierías</p>
+        <p>&copy; 2025 CUCEI Mart - Todos los derechos reservados.</p>
+        <div class="footer-logo">
+            <img src="img/CUCEI.png" alt="Logo CUCEI" class="footer-img">
+        </div>
     </footer>
 
-    <script>
-        // Datos de ejemplo de emprendimientos (JSON simulado)
-        const businessesData = [
-            {
-                id: 1,
-                name: "Sabores CUCEI",
-                description: "Deliciosas salchipapas, hamburguesas y snacks preparados al momento. Los mejores sabores para estudiantes.",
-                category: "comida",
-                icon: "fas fa-hamburger",
-                price: "Desde $25 MXN",
-                url: "sabores-cucei.html"
-            },
-            {
-                id: 2,
-                name: "Papeleria Cucei",
-                description: "Servicio de impresiones, copias, engargolados y material escolar. Rápido y económico.",
-                category: "servicios",
-                icon: "fas fa-print",
-                price: "Desde $0.20 MXN",
-                url: "copymax-express.html"
-            },
-            {
-                id: 3,
-                name: "Tech CUCEI",
-                description: "Ropa casual y playeras personalizadas con diseños únicos para universitarios modernos.",
-                category: "ropa",
-                icon: "fas fa-tshirt",
-                price: "Desde $150 MXN",
-                url: "techstyle-cucei.html"
-            },
-            {
-                id: 4,
-                name: "Accesorios",
-                description: "Fundas para celular, cables, audífonos y gadgets tecnológicos a precios de estudiante.",
-                category: "accesorios",
-                icon: "fas fa-mobile-alt",
-                price: "Desde $50 MXN",
-                url: "accesorios-tech.html"
-            },
-            {
-                id: 5,
-                name: "Cabeza",
-                description: "Decoraciones personalizadas para eventos, cumpleaños y celebraciones estudiantiles.",
-                category: "decoraciones",
-                icon: "fas fa-birthday-cake",
-                price: "Desde $100 MXN",
-                url: "crea-cucei.html"
-            },
-            {
-                id: 6,
-                name: "Videojuegos",
-                description: "Venta y renta de videojuegos, consolas retro y accesorios gaming para estudiantes.",
-                category: "videojuegos",
-                icon: "fas fa-gamepad",
-                price: "Desde $80 MXN",
-                url: "gamezone-cucei.html"
-            },
-            {
-                id: 7,
-                name: "Café",
-                description: "Café gourmet, bebidas calientes y postres artesanales para energizar tus estudios.",
-                category: "comida",
-                icon: "fas fa-coffee",
-                price: "Desde $30 MXN",
-                url: "cafe-ingenio.html"
-            },
-            {
-                id: 8,
-                name: "Reparar PC",
-                description: "Reparación de celulares, tablets y computadoras. Diagnóstico gratuito y garantía.",
-                category: "servicios",
-                icon: "fas fa-tools",
-                price: "Desde $150 MXN",
-                url: "repair-tech.html"
-            },
-            {
-                id: 9,
-                name: "Estilo Urbano",
-                description: "Zapatillas, gorras y accesorios urbanos con las últimas tendencias de moda juvenil.",
-                category: "ropa",
-                icon: "fas fa-shoe-prints",
-                price: "Desde $200 MXN",
-                url: "urban-style.html"
-            }
-        ];
-
-        let currentBusinesses = [...businessesData];
-        let currentCategory = 'todos';
-        let currentSearch = '';
-
-        // Funciones principales
-        function renderBusinesses(businesses) {
-            const grid = document.getElementById('businessesGrid');
-            grid.innerHTML = '';
-
-            businesses.forEach(business => {
-                const card = document.createElement('div');
-                card.className = 'business-card';
-                card.onclick = () => window.location.href = business.url;
-                
-                card.innerHTML = `
-                    <div class="business-image">
-                        <i class="${business.icon}"></i>
-                    </div>
-                    <h3 class="business-name">${business.name}</h3>
-                    <p class="business-description">${business.description}</p>
-                    <div class="business-category">
-                        <i class="${business.icon}"></i>
-                        <span>${business.category.charAt(0).toUpperCase() + business.category.slice(1)}</span>
-                    </div>
-                    <div style="font-weight: bold; color: #667eea; margin-bottom: 1rem;">${business.price}</div>
-                    <button class="business-btn">
-                        <i class="fas fa-external-link-alt"></i> Ver Negocio
-                    </button>
-                `;
-                
-                grid.appendChild(card);
-            });
-
-            if (businesses.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: white;">
-                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.7;"></i>
-                        <h3>No se encontraron resultados</h3>
-                        <p>Intenta con otros términos de búsqueda o categoría</p>
-                    </div>
-                `;
-            }
-        }
-
-        function filterBusinesses() {
-            let filtered = businessesData;
-
-            // Filtrar por categoría
-            if (currentCategory !== 'todos') {
-                filtered = filtered.filter(business => business.category === currentCategory);
-            }
-
-            // Filtrar por búsqueda
-            if (currentSearch) {
-                filtered = filtered.filter(business => 
-                    business.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                    business.description.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                    business.category.toLowerCase().includes(currentSearch.toLowerCase())
-                );
-            }
-
-            currentBusinesses = filtered;
-            renderBusinesses(currentBusinesses);
-        }
-
-        function setupEventListeners() {
-            // Búsqueda en tiempo real
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                currentSearch = e.target.value;
-                filterBusinesses();
-            });
-
-            // Filtros de categoría
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remover clase active de todos los botones
-                    filterButtons.forEach(b => b.classList.remove('active'));
-                    // Agregar clase active al botón clickeado
-                    btn.classList.add('active');
-                    
-                    currentCategory = btn.dataset.category;
-                    filterBusinesses();
-                });
-            });
-        }
-
-        function toggleNotifications() {
-            const popup = document.getElementById('notificationPopup');
-            popup.classList.toggle('show');
-            
-            // Cerrar al hacer click fuera
-            if (popup.classList.contains('show')) {
-                setTimeout(() => {
-                    document.addEventListener('click', function closeNotifications(e) {
-                        if (!popup.contains(e.target) && !e.target.closest('.nav-icon')) {
-                            popup.classList.remove('show');
-                            document.removeEventListener('click', closeNotifications);
-                        }
-                    });
-                }, 100);
-            }
-        }
-
-        function initBannerRotation() {
-            const slides = document.querySelectorAll('.banner-slide');
-            let currentSlide = 0;
-            
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 4000);
-        }
-
-        // Inicialización
-        document.addEventListener('DOMContentLoaded', () => {
-            renderBusinesses(businessesData);
-            setupEventListeners();
-            initBannerRotation();
-        });
-
-        // Función global para notificaciones (accesible desde HTML)
-        window.toggleNotifications = toggleNotifications;
-
-         class PaletteManager {
-            constructor() {
-                this.currentPalette = this.getPaletteFromStorage() || 'ocean';
-                this.init();
-            }
-
-            init() {
-                this.applyPalette(this.currentPalette);
-                this.updateActiveOption();
-            }
-
-            changePalette(paletteName) {
-                this.currentPalette = paletteName;
-                this.applyPalette(paletteName);
-                this.savePaletteToStorage(paletteName);
-                this.updateActiveOption();
-                
-                // Cerrar el popup después de seleccionar
-                setTimeout(() => {
-                    this.closePalette();
-                }, 300);
-                
-                // Mostrar notificación
-                this.showPaletteNotification(paletteName);
-            }
-
-            applyPalette(paletteName) {
-                document.documentElement.setAttribute('data-palette', paletteName);
-            }
-
-            updateActiveOption() {
-                // Remover clase active de todas las opciones
-                document.querySelectorAll('.palette-option').forEach(option => {
-                    option.classList.remove('active');
-                });
-                
-                // Agregar clase active a la opción seleccionada
-                const activeOption = document.querySelector(`[data-palette="${this.currentPalette}"]`);
-                if (activeOption) {
-                    activeOption.classList.add('active');
-                }
-            }
-
-            togglePalette() {
-                const popup = document.getElementById('palettePopup');
-                popup.classList.toggle('show');
-                
-                // Cerrar al hacer click fuera
-                if (popup.classList.contains('show')) {
-                    setTimeout(() => {
-                        document.addEventListener('click', this.handleClickOutside.bind(this));
-                    }, 100);
-                }
-            }
-
-            closePalette() {
-                const popup = document.getElementById('palettePopup');
-                popup.classList.remove('show');
-                document.removeEventListener('click', this.handleClickOutside.bind(this));
-            }
-
-            handleClickOutside(e) {
-                const popup = document.getElementById('palettePopup');
-                const trigger = document.querySelector('.palette-trigger');
-                
-                if (!popup.contains(e.target) && !trigger.contains(e.target)) {
-                    this.closePalette();
-                }
-            }
-
-            savePaletteToStorage(paletteName) {
-                try {
-                    // Usar variables JavaScript en lugar de localStorage
-                    window.currentSelectedPalette = paletteName;
-                } catch (error) {
-                    console.log('Guardado en memoria:', paletteName);
-                }
-            }
-
-            getPaletteFromStorage() {
-                try {
-                    return window.currentSelectedPalette || null;
-                } catch (error) {
-                    return null;
-                }
-            }
-
-            showPaletteNotification(paletteName) {
-                // Crear notificación temporal
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: var(--background-overlay);
-                    backdrop-filter: blur(10px);
-                    padding: 1rem 2rem;
-                    border-radius: 10px;
-                    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-                    z-index: 9999;
-                    color: var(--text-primary);
-                    font-weight: 500;
-                    animation: fadeInUp 0.3s ease;
-                `;
-                
-                const paletteNames = {
-                    ocean: 'Océano',
-                    sunset: 'Atardecer',
-                    forest: 'Bosque',
-                    neon: 'Neón',
-                    dark: 'Oscuro',
-                    royal: 'Real'
-                };
-                
-                notification.innerHTML = `
-                    <i class="fas fa-palette" style="margin-right: 0.5rem; color: var(--primary-start);"></i>
-                    Paleta cambiada a: <strong>${paletteNames[paletteName]}</strong>
-                `;
-                
-                document.body.appendChild(notification);
-                
-                // Remover notificación después de 3 segundos
-                setTimeout(() => {
-                    notification.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => {
-                        if (notification.parentNode) {
-                            notification.parentNode.removeChild(notification);
-                        }
-                    }, 300);
-                }, 3000);
-            }
-        }
-
-        // Inicializar el gestor de paletas
-        let paletteManager;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            paletteManager = new PaletteManager();
-        });
-
-        // Funciones globales para el HTML
-        function togglePalette() {
-            if (paletteManager) {
-                paletteManager.togglePalette();
-            }
-        }
-
-        function changePalette(paletteName) {
-            if (paletteManager) {
-                paletteManager.changePalette(paletteName);
-            }
-        }
-
-        // Agregar estilos para animaciones de notificación
-        const styleSheet = document.createElement('style');
-        styleSheet.textContent = `
-            @keyframes fadeOut {
-                from {
-                    opacity: 1;
-                    transform: translateX(-50%) translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateX(-50%) translateY(-20px);
-                }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-    </script>
+    <script src="Shop.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
