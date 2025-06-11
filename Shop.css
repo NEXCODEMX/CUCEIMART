@@ -136,7 +136,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
         .banner-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #333;
             margin-bottom: 1rem;
         }
@@ -568,7 +568,6 @@
         display: none;
         border-radius: 8px;
     }
-
         .palette-popup.show {
             display: block;
             animation: fadeInUp 0.3s ease;
@@ -583,7 +582,6 @@
             transform: translate(-50%, -50%);
         }
     }
-
         .palette-title {
             font-size: 1.2rem;
             font-weight: bold;
@@ -643,11 +641,9 @@
         .palette-option[data-palette="rosenight"] .palette-preview {
             background: linear-gradient(45deg, #ff6f91, #d500f9);
         }
-
         .palette-option[data-palette="greenroots"] .palette-preview {
             background: linear-gradient(45deg, #2e7d32, #81c784);
         }
-
         @media (max-width: 768px) {
             .palette-switcher {
                 top: 70px;
@@ -737,7 +733,6 @@
         align-items: center;
         gap: 10px;
     }
-
     .logo-img {
         height: 50px;
         width: auto;
@@ -745,18 +740,14 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
         transition: transform 0.3s ease;
     }
-
     .logo-img:hover {
         transform: scale(1.05);
     }
-
     .logo-text {
         font-size: 1.5rem;
         font-weight: bold;
         color: #333;
     }
-
-
     .footer-logo-container {
         display: flex;
         align-items: center;
@@ -765,7 +756,6 @@
         position: relative;
         width: 100%;
     }
-
     .footer-line {
         height: 5px;
         background-color: black;
@@ -773,45 +763,38 @@
         flex-grow: 50;
         max-width: 500px;
     }
-
     .footer-logo {
         padding: 0 1rem;
     }
-
     .footer-logo img {
         height: 120px;
         width: auto;
         opacity: 0.85;
         transition: opacity 0.3s ease;
     }
-
     .footer-logo img:hover {
         opacity: 1;
     }
-
 .banner-container {
     text-align: center;
     padding: 3rem 1rem;
 }
-
 .banner-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: var(--text-color, #333);
 }
-
 .banner-content {
     position: relative;
     overflow: hidden;
     width: 90%;
     max-width: 900px;
-    height: 450px; /* Alto más grande */
+    height: 450px; 
     margin: 0 auto;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     background: #fff;
 }
-
 .banner-slide {
     display: none;
     flex-direction: column;
@@ -825,16 +808,12 @@
 .banner-slide.active {
     display: flex;
 }
-
-/* Imagen ocupa todo el ancho y alto del contenedor sin deformarse */
 .banner-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* <- Esto adapta perfectamente la imagen */
+    object-fit: cover; 
     border-radius: 15px;
 }
-
-/* Opcional: Texto encima o debajo de la imagen */
 .banner-slide h3,
 .banner-slide p {
     position: absolute;
@@ -845,22 +824,18 @@
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 10px;
 }
-
 .banner-slide h3 {
     top: 20px;
     font-size: 1.8rem;
 }
-
 .banner-slide p {
     bottom: 20px;
     font-size: 1.1rem;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); /* Fuente elegante */
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'); 
 .banner-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 2rem;
     color: var(--primary-color, #000000);
     margin-bottom: 2.5rem;
     position: relative;
@@ -879,11 +854,9 @@
     background: linear-gradient(to right, #6c12c5, #2575fc);
     border-radius: 2px;
 }
-
-
 .business-image {
     width: 100%;
-    height: 200px; /* o el tamaño que prefieras */
+    height: 200px; 
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -892,25 +865,19 @@
     align-items: center;
     background-color: #f5f5f5;
 }
-
 .business-image-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
-
 .business-image-icon {
     font-size: 5rem;
     color: #667eea;
 }
-
 .footer p {
-    margin-top: 2.5rem; /* Ajusta este valor según cuánto quieras bajarlo */
+    margin-top: 2.5rem; 
 }
-
-
-/* Botón flotante */
 #chat-btn {
   position: fixed;
   bottom: 20px;
@@ -929,20 +896,16 @@
   transition: box-shadow 0.3s ease;
   z-index: 11000;
 }
-
 #chat-btn:hover, #chat-btn:focus {
   box-shadow: 0 6px 20px var(--accent-color, #5a67d8);
   outline: none;
 }
-
 #chat-btn img {
   width: 80%;
   height: 80%;
   object-fit: contain;
   border-radius: 50%;
 }
-
-/* Chat container oculto y centrado */
 #chat-container {
   position: fixed;
   top: 50%;
@@ -960,13 +923,9 @@
   z-index: 12000;
   font-family: Arial, sans-serif;
 }
-
-/* Cuando se muestra */
 #chat-container.active {
   display: flex;
 }
-
-/* Header del chat */
 #chat-header {
   background: linear-gradient(45deg, var(--primary-start, #667eea), var(--primary-end, #764ba2));
   color: white;
@@ -978,7 +937,6 @@
   gap: 10px;
   user-select: none;
 }
-
 .chatbot-avatar {
   width: 35px;
   height: 35px;
@@ -986,14 +944,12 @@
   border: 2px solid white;
   object-fit: cover;
 }
-
 #chat-header h2 {
   flex-grow: 1;
   margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
 }
-
 #chat-close {
   background: transparent;
   border: none;
@@ -1005,13 +961,10 @@
   user-select: none;
   transition: color 0.2s ease;
 }
-
 #chat-close:hover, #chat-close:focus {
   color: #f44336;
   outline: none;
 }
-
-/* Área de mensajes */
 #chat-messages {
   flex-grow: 1;
   padding: 10px 15px;
@@ -1021,8 +974,6 @@
   flex-direction: column;
   gap: 12px;
 }
-
-/* Mensajes del chatbot */
 .message.bot {
   align-self: flex-start;
   background: var(--primary-start, #667eea);
@@ -1032,8 +983,6 @@
   max-width: 75%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
-
-/* Mensajes del usuario */
 .message.user {
   align-self: flex-end;
   background: var(--accent-color, #5a67d8);
@@ -1044,8 +993,6 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   font-weight: 600;
 }
-
-/* Opciones de respuestas */
 #chat-options {
   padding: 10px 15px;
   background: var(--background-overlay, #fff);
@@ -1055,7 +1002,6 @@
   border-top: 1px solid var(--border-color, #ddd);
   justify-content: center;
 }
-
 #chat-options button {
   background: var(--primary-start, #667eea);
   color: white;
@@ -1069,13 +1015,10 @@
   min-width: 90px;
   max-width: 48%;
 }
-
 #chat-options button:hover, #chat-options button:focus {
   background: var(--primary-end, #764ba2);
   outline: none;
 }
-
-/* Responsive móvil */
 @media (max-width: 480px) {
   #chat-container {
     width: 95vw;
@@ -1083,7 +1026,6 @@
     max-width: none;
     border-radius: 0;
   }
-
   #chat-options button {
     max-width: 100%;
   }

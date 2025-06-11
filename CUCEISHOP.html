@@ -14,7 +14,6 @@
         <div class="header-content">
             <div class="logo">
                 <img src="img/CUCEIMART.jpg" alt="Logo CuceiMart" class="logo-img">
-                <span class="logo-text">CUCEI MART</span>
             </div>
         </div>
         <nav class="nav-icons">
@@ -38,29 +37,20 @@
                 </div>
             </nav>
     </header>
-     <!-- Botón flotante para abrir chat -->
     <button id="chat-btn" aria-label="Abrir chat de MART" title="Chat MART">
     <img src="CUCEIMARTLOGO.jpg" alt="Logo MART" />
     </button>
-
-    <!-- Contenedor de chat -->
     <div id="chat-container" aria-hidden="true" role="dialog" aria-modal="true">
     <div id="chat-header">
         <img src="CUCEIMARTLOGO.jpg" alt="MART chatbot" class="chatbot-avatar" />
         <h2>MART</h2>
         <button id="chat-close" aria-label="Cerrar chat">&times;</button>
     </div>
-
     <div id="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
-        <!-- Mensajes dinámicos aparecerán aquí -->
     </div>
-
     <div id="chat-options" aria-label="Opciones de respuesta">
-        <!-- Botones de opciones de usuario -->
     </div>
     </div>
-
-    <!-- Ventana emergente de la paleta de colores -->
     <div class="palette-popup" id="palettePopup">
         <h3 class="palette-title">
             <i class="fas fa-palette"></i> Paletas de Colores
@@ -100,8 +90,6 @@
             </div>
         </div>
     </div>
-
-    <!-- CONTENIDO PRINCIPAL (puedes dejar tu main aquí) -->
    <main class="main-container">
         <section class="search-section">
             <h1 class="search-title">Tu punto de emprendimiento</h1>
@@ -142,8 +130,29 @@
                 <button class="filter-btn" data-category="tecnologia">
                     <i class="fas fa-laptop"></i> Tecnología
                 </button>
-                <button class="filter-btn" data-category="servicios">
+                <button class="filter-btn" data-category="libros">
+                    <i class="fas fa-book"></i> Libros
+                </button>
+                <button class="filter-btn" data-category="juguetes">
+                    <i class="fas fa-puzzle-piece"></i> Juguetes
+                </button>
+                <button class="filter-btn" data-category="suplementos">
+                    <i class="fas fa-capsules"></i> Suplementos
+                </button>
+                <button class="filter-btn" data-category="regalos">
+                    <i class="fas fa-gift"></i> Regalos
+                </button>
+                <button class="filter-btn" data-category="articulos-de-cocina">
+                    <i class="fas fa-warehouse"></i></i> Artículos de Cocina
+                </button>
+                <button class="filter-btn" data-category="muebles">
+                    <i class="fas fa-couch"></i> Muebles
+                </button>
+                 <button class="filter-btn" data-category="servicios">
                     <i class="fas fa-tools"></i> Servicios
+                </button>
+                <button class="filter-btn" data-category="otros">
+                    <i class="fas fa-ellipsis-h"></i> Otros
                 </button>
                 </div>
             </div>
@@ -168,12 +177,9 @@
                 </a>
             </div>
         </section>
-
-
         <section class="businesses-grid" id="businessesGrid">
         </section>
     </main>
-
     <div class="notification-popup" id="notificationPopup">
         <h3 style="margin-bottom: 1rem; color: #333;">
             <i class="fas fa-bell"></i> Notificaciones
@@ -200,9 +206,6 @@
             </div>
         </div>
     </div>
-
-
-
     <footer class="footer">
         <div class="footer-logo-container">
             <div class="footer-line"></div>
@@ -213,8 +216,6 @@
         </div>
         <p>&copy; 2025 CUCEI Mart - Todos los derechos reservados.</p>
     </footer>
-    
-
     <script src="Shop.js"></script>
 </body>
 </html>

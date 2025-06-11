@@ -90,11 +90,9 @@ const businessesData = [
     image: "img/negocio9.jpg"
   }
 ];
-
 let currentBusinesses = [...businessesData];
 let currentCategory = 'todos';
 let currentSearch = '';
-
 function renderBusinesses(businesses) {
     const grid = document.getElementById('businessesGrid');
     grid.innerHTML = '';
@@ -130,7 +128,6 @@ function renderBusinesses(businesses) {
         `;
     }
 }
-
 function filterBusinesses() {
     let filtered = businessesData;
     if (currentCategory !== 'todos') {
@@ -146,7 +143,6 @@ function filterBusinesses() {
     currentBusinesses = filtered;
     renderBusinesses(currentBusinesses);
 }
-
 function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', (e) => {
@@ -163,7 +159,6 @@ function setupEventListeners() {
         });
     });
 }
-
 function toggleNotifications() {
     const popup = document.getElementById('notificationPopup');
     popup.classList.toggle('show');
@@ -178,7 +173,6 @@ function toggleNotifications() {
         }, 100);
     }
 }
-
 function initBannerRotation() {
     const slides = document.querySelectorAll('.banner-slide');
     let currentSlide = 0;
@@ -188,15 +182,12 @@ function initBannerRotation() {
         slides[currentSlide].classList.add('active');
     }, 4000);
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     renderBusinesses(businessesData);
     setupEventListeners();
     initBannerRotation();
 });
-
 window.toggleNotifications = toggleNotifications;
-
 class PaletteManager {
     constructor() {
         this.currentPalette = this.getPaletteFromStorage() || 'ocean';
@@ -306,18 +297,15 @@ class PaletteManager {
         }, 3000);
     }
 }
-
 let paletteManager;
 document.addEventListener('DOMContentLoaded', () => {
     paletteManager = new PaletteManager();
 });
-
 function togglePalette() {
     if (paletteManager) {
         paletteManager.togglePalette();
     }
 }
-
 function changePalette(paletteName) {
     if (paletteManager) {
         paletteManager.changePalette(paletteName);
@@ -336,25 +324,18 @@ styleSheet.textContent = `
         }
     }
 `;
-
 const chatBtn = document.getElementById('chat-btn');
 const chatContainer = document.getElementById('chat-container');
 const chatClose = document.getElementById('chat-close');
 const chatMessages = document.getElementById('chat-messages');
 const chatOptions = document.getElementById('chat-options');
-
-let conversationState = "start";
-
-// Función para agregar mensajes al chat
-function addMessage(text, sender = "bot") {
+let conversationState = "start";function addMessage(text, sender = "bot") {
   const msgDiv = document.createElement("div");
   msgDiv.classList.add("message", sender);
   msgDiv.textContent = text;
   chatMessages.appendChild(msgDiv);
-  chatMessages.scrollTop = chatMessages.scrollHeight; // scroll abajo
+  chatMessages.scrollTop = chatMessages.scrollHeight; 
 }
-
-// Función para mostrar opciones de respuesta
 function showOptions(options) {
   chatOptions.innerHTML = "";
   options.forEach(opt => {
@@ -364,11 +345,8 @@ function showOptions(options) {
     chatOptions.appendChild(btn);
   });
 }
-
-// Manejo de respuestas usuario según el estado
 function handleUserResponse(value) {
   addMessage(value, "user");
-
   switch(conversationState) {
     case "start":
       if (value === "servicios") {
@@ -394,7 +372,6 @@ function handleUserResponse(value) {
         ]);
       }
       break;
-
     case "servicios":
       if (value === "publicidad") {
         addMessage("¿Quieres anunciar tu negocio en CUCEI Mart? Podemos ayudarte a llegar a más clientes.", "bot");
@@ -419,7 +396,6 @@ function handleUserResponse(value) {
         conversationState = "agregar";
       }
       break;
-
     case "publicidad":
       if (value === "quiero_publicidad") {
         addMessage("¡Excelente! Un asesor se pondrá en contacto contigo pronto para ayudarte con tu publicidad.", "bot");
@@ -435,7 +411,6 @@ function handleUserResponse(value) {
         conversationState = "start";
       }
       break;
-
     case "web":
       if (value === "quiero_web") {
         addMessage("Perfecto. Te enviaremos información detallada sobre nuestros servicios de creación web.", "bot");
@@ -451,7 +426,6 @@ function handleUserResponse(value) {
         conversationState = "start";
       }
       break;
-
     case "agregar":
       if (value === "quiero_agregar") {
         addMessage("Genial. Por favor, envíanos los datos de tu negocio para comenzar.", "bot");
@@ -467,7 +441,6 @@ function handleUserResponse(value) {
         conversationState = "start";
       }
       break;
-
     case "ayuda":
       if (value === "info") {
         addMessage("CUCEI Mart es el mejor buscador de negocios emprendedores en CUCEI. ¿Quieres conocer nuestros servicios?", "bot");
@@ -484,7 +457,6 @@ function handleUserResponse(value) {
         conversationState = "start";
       }
       break;
-
     default:
       addMessage("Disculpa, no entendí esa opción. Por favor selecciona una de las opciones disponibles.", "bot");
       showOptions([
@@ -494,8 +466,6 @@ function handleUserResponse(value) {
       break;
   }
 }
-
-// Función para iniciar conversación al abrir chat
 function startConversation() {
   chatMessages.innerHTML = "";
   addMessage("¡Hola! Soy MART, tu asistente virtual de CUCEI Mart. ¿En qué puedo ayudarte hoy?", "bot");
@@ -505,17 +475,13 @@ function startConversation() {
   ]);
   conversationState = "start";
 }
-
-// Abrir y cerrar chat
 chatBtn.addEventListener('click', () => {
   chatContainer.classList.add('active');
   chatContainer.setAttribute('aria-hidden', 'false');
   startConversation();
 });
-
 chatClose.addEventListener('click', () => {
   chatContainer.classList.remove('active');
   chatContainer.setAttribute('aria-hidden', 'true');
 });
-
 document.head.appendChild(styleSheet);
