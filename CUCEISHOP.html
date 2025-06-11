@@ -38,7 +38,27 @@
                 </div>
             </nav>
     </header>
-    
+     <!-- Botón flotante para abrir chat -->
+    <button id="chat-btn" aria-label="Abrir chat de MART" title="Chat MART">
+    <img src="CUCEIMARTLOGO.jpg" alt="Logo MART" />
+    </button>
+
+    <!-- Contenedor de chat -->
+    <div id="chat-container" aria-hidden="true" role="dialog" aria-modal="true">
+    <div id="chat-header">
+        <img src="CUCEIMARTLOGO.jpg" alt="MART chatbot" class="chatbot-avatar" />
+        <h2>MART</h2>
+        <button id="chat-close" aria-label="Cerrar chat">&times;</button>
+    </div>
+
+    <div id="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+        <!-- Mensajes dinámicos aparecerán aquí -->
+    </div>
+
+    <div id="chat-options" aria-label="Opciones de respuesta">
+        <!-- Botones de opciones de usuario -->
+    </div>
+    </div>
 
     <!-- Ventana emergente de la paleta de colores -->
     <div class="palette-popup" id="palettePopup">
@@ -181,27 +201,6 @@
         </div>
     </div>
 
-    <!-- Botón flotante para abrir chat -->
-    <button id="chat-btn" aria-label="Abrir chat de MART" title="Chat MART">
-    <img src="CUCEIMARTLOGO.jpg" alt="Logo MART" />
-    </button>
-
-    <!-- Contenedor de chat -->
-    <div id="chat-container" aria-hidden="true" role="dialog" aria-modal="true">
-    <div id="chat-header">
-        <img src="CUCEIMARTLOGO.jpg" alt="MART chatbot" class="chatbot-avatar" />
-        <h2>MART</h2>
-        <button id="chat-close" aria-label="Cerrar chat">&times;</button>
-    </div>
-
-    <div id="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
-        <!-- Mensajes dinámicos aparecerán aquí -->
-    </div>
-
-    <div id="chat-options" aria-label="Opciones de respuesta">
-        <!-- Botones de opciones de usuario -->
-    </div>
-    </div>
 
 
     <footer class="footer">
