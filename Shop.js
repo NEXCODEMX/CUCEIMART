@@ -336,4 +336,186 @@ styleSheet.textContent = `
         }
     }
 `;
+
+const chatBtn = document.getElementById('chat-btn');
+const chatContainer = document.getElementById('chat-container');
+const chatClose = document.getElementById('chat-close');
+const chatMessages = document.getElementById('chat-messages');
+const chatOptions = document.getElementById('chat-options');
+
+let conversationState = "start";
+
+// Función para agregar mensajes al chat
+function addMessage(text, sender = "bot") {
+  const msgDiv = document.createElement("div");
+  msgDiv.classList.add("message", sender);
+  msgDiv.textContent = text;
+  chatMessages.appendChild(msgDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight; // scroll abajo
+}
+
+// Función para mostrar opciones de respuesta
+function showOptions(options) {
+  chatOptions.innerHTML = "";
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.textContent = opt.label;
+    btn.onclick = () => handleUserResponse(opt.value);
+    chatOptions.appendChild(btn);
+  });
+}
+
+// Manejo de respuestas usuario según el estado
+function handleUserResponse(value) {
+  addMessage(value, "user");
+
+  switch(conversationState) {
+    case "start":
+      if (value === "servicios") {
+        addMessage("Claro, ofrecemos:\n1. Publicidad en el buscador.\n2. Creación de páginas web.\n3. Agregar tu negocio al sitio.", "bot");
+        showOptions([
+          {label: "Publicidad", value: "publicidad"},
+          {label: "Creación web", value: "web"},
+          {label: "Agregar negocio", value: "agregar"}
+        ]);
+        conversationState = "servicios";
+      } else if (value === "ayuda") {
+        addMessage("¿En qué puedo ayudarte? Por favor elige una opción:", "bot");
+        showOptions([
+          {label: "Información general", value: "info"},
+          {label: "Contactar soporte", value: "soporte"}
+        ]);
+        conversationState = "ayuda";
+      } else {
+        addMessage("Disculpa, no entendí. Por favor elige una opción:", "bot");
+        showOptions([
+          {label: "Quiero conocer los servicios", value: "servicios"},
+          {label: "Necesito ayuda", value: "ayuda"}
+        ]);
+      }
+      break;
+
+    case "servicios":
+      if (value === "publicidad") {
+        addMessage("¿Quieres anunciar tu negocio en CUCEI Mart? Podemos ayudarte a llegar a más clientes.", "bot");
+        showOptions([
+          {label: "Sí, quiero publicidad", value: "quiero_publicidad"},
+          {label: "No, gracias", value: "no_publicidad"}
+        ]);
+        conversationState = "publicidad";
+      } else if (value === "web") {
+        addMessage("Creamos páginas web profesionales para tu emprendimiento. ¿Quieres más información?", "bot");
+        showOptions([
+          {label: "Sí, más info", value: "quiero_web"},
+          {label: "No, gracias", value: "no_web"}
+        ]);
+        conversationState = "web";
+      } else if (value === "agregar") {
+        addMessage("Podemos ayudarte a agregar tu negocio al sitio web y aumentar tu visibilidad. ¿Quieres empezar?", "bot");
+        showOptions([
+          {label: "Sí, quiero agregar negocio", value: "quiero_agregar"},
+          {label: "No, gracias", value: "no_agregar"}
+        ]);
+        conversationState = "agregar";
+      }
+      break;
+
+    case "publicidad":
+      if (value === "quiero_publicidad") {
+        addMessage("¡Excelente! Un asesor se pondrá en contacto contigo pronto para ayudarte con tu publicidad.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      } else if (value === "no_publicidad") {
+        addMessage("Entendido. Si necesitas algo más, solo dime.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      }
+      break;
+
+    case "web":
+      if (value === "quiero_web") {
+        addMessage("Perfecto. Te enviaremos información detallada sobre nuestros servicios de creación web.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      } else if (value === "no_web") {
+        addMessage("De acuerdo. Si tienes dudas o quieres otro servicio, estoy aquí.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      }
+      break;
+
+    case "agregar":
+      if (value === "quiero_agregar") {
+        addMessage("Genial. Por favor, envíanos los datos de tu negocio para comenzar.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      } else if (value === "no_agregar") {
+        addMessage("No hay problema. Si cambias de opinión, aquí estaré.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      }
+      break;
+
+    case "ayuda":
+      if (value === "info") {
+        addMessage("CUCEI Mart es el mejor buscador de negocios emprendedores en CUCEI. ¿Quieres conocer nuestros servicios?", "bot");
+        showOptions([
+          {label: "Sí, servicios", value: "servicios"},
+          {label: "No, gracias", value: "start"}
+        ]);
+        conversationState = "start";
+      } else if (value === "soporte") {
+        addMessage("Puedes contactarnos vía correo: soporte@cuceimart.com o por teléfono: 123-456-7890.", "bot");
+        showOptions([
+          {label: "Volver al inicio", value: "start"}
+        ]);
+        conversationState = "start";
+      }
+      break;
+
+    default:
+      addMessage("Disculpa, no entendí esa opción. Por favor selecciona una de las opciones disponibles.", "bot");
+      showOptions([
+        {label: "Volver al inicio", value: "start"}
+      ]);
+      conversationState = "start";
+      break;
+  }
+}
+
+// Función para iniciar conversación al abrir chat
+function startConversation() {
+  chatMessages.innerHTML = "";
+  addMessage("¡Hola! Soy MART, tu asistente virtual de CUCEI Mart. ¿En qué puedo ayudarte hoy?", "bot");
+  showOptions([
+    {label: "Quiero conocer los servicios", value: "servicios"},
+    {label: "Necesito ayuda", value: "ayuda"}
+  ]);
+  conversationState = "start";
+}
+
+// Abrir y cerrar chat
+chatBtn.addEventListener('click', () => {
+  chatContainer.classList.add('active');
+  chatContainer.setAttribute('aria-hidden', 'false');
+  startConversation();
+});
+
+chatClose.addEventListener('click', () => {
+  chatContainer.classList.remove('active');
+  chatContainer.setAttribute('aria-hidden', 'true');
+});
+
 document.head.appendChild(styleSheet);
