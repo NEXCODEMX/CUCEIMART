@@ -555,18 +555,20 @@
             box-shadow: 0 8px 30px var(--shadow-color);
         }
         .palette-popup {
-            position: fixed;       /* fijo respecto a la ventana del navegador */
-            top: 60px;             /* un poco debajo del header o el ícono */
-            right: 20px;           /* ajusta para que quede alineado al ícono */
-            width: 250px;          /* tamaño adecuado */
-            background-color: white;
-            border: 1px solid #ccc;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 1rem;
-            z-index: 1000;         /* para que esté por encima de otros elementos */
-            display: none;         /* por defecto oculto */
-            border-radius: 8px;
-            }
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 280px;
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 1rem;
+        z-index: 1000;
+        display: none;
+        border-radius: 8px;
+    }
+
         .palette-popup.show {
             display: block;
             animation: fadeInUp 0.3s ease;
@@ -754,23 +756,37 @@
     }
 
 
+    .footer-logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        position: relative;
+        width: 100%;
+    }
+
+    .footer-line {
+        height: 5px;
+        background-color: black;
+        opacity: 0.6;
+        flex-grow: 50;
+        max-width: 500px;
+    }
+
     .footer-logo {
-    margin-top: 1rem;
-    text-align: center;
-}
+        padding: 0 1rem;
+    }
 
-.footer-img {
-    height: 60px;
-    width: auto;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
-}
+    .footer-logo img {
+        height: 120px;
+        width: auto;
+        opacity: 0.85;
+        transition: opacity 0.3s ease;
+    }
 
-.footer-img:hover {
-    opacity: 1;
-}
-
-
+    .footer-logo img:hover {
+        opacity: 1;
+    }
 
 .banner-container {
     text-align: center;
@@ -783,7 +799,6 @@
     color: var(--text-color, #333);
 }
 
-/* Contenedor más grande */
 .banner-content {
     position: relative;
     overflow: hidden;
@@ -852,7 +867,6 @@
     padding-bottom: 0.5rem;
 }
 
-/* Línea decorativa debajo del título */
 .banner-title::after {
     content: "";
     position: absolute;
@@ -890,88 +904,6 @@
     color: #667eea;
 }
 
-
-.chatbot-panel {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 320px;
-  max-height: 400px;
-  background: linear-gradient(
-    135deg,
-    #1e2a38,  /* azul muy oscuro */
-    #16202b   /* azul un poco más oscuro */
-  );
-  backdrop-filter: saturate(180%) blur(8px);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transform: translate(-50%, 110%);
-  transition: transform 0.3s ease;
-  z-index: 9999;
-  color: #e0e6f0;  /* texto claro y suave */
-}
-
-.chatbot-panel.active {
-  transform: translate(-50%, -50%);
-}
-
-.chatbot-messages {
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  font-size: 0.9rem;
-  color: #c8d0e7;  /* color de texto para mensajes, claro */
-}
-
-.chatbot-message {
-  padding: 0.6rem 1rem;
-  border-radius: 15px;
-  max-width: 75%;
-  word-wrap: break-word;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #273847; /* fondo de mensaje ligeramente más claro */
-  color: #e0e6f0;
-}
-
-.chatbot-input-area {
-  display: flex;
-  border-top: 1px solid #3a4a61;
-}
-
-#chatbotInput {
-  flex: 1;
-  padding: 0.8rem 1rem;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  background: #32475b; /* fondo input azul oscuro */
-  color: #e0e6f0;
-  border-radius: 0 0 0 10px;
-}
-
-#chatbotSendBtn {
-  background: #4a90e2; /* azul vivo y elegante */
-  border: none;
-  color: white;
-  padding: 0 1rem;
-  cursor: pointer;
-  border-radius: 0 0 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-#chatbotSendBtn:hover {
-  background: #357abd; /* azul un poco más oscuro al pasar el mouse */
-}
-
-.chatbot-panel {
-    display: none; /* Oculto al inicio */
+.footer p {
+    margin-top: 2.5rem; /* Ajusta este valor según cuánto quieras bajarlo */
 }
