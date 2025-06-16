@@ -1,7 +1,7 @@
 const businessesData = [
   {
     id: 1,
-    name: "Sabores CUCEI",
+    name: "Restaurante ejemplo",
     description: "Deliciosas salchipapas, hamburguesas y snacks preparados al momento. Los mejores sabores para estudiantes.",
     category: "comida",
     icon: "fas fa-hamburger",
@@ -11,7 +11,7 @@ const businessesData = [
   },
   {
     id: 2,
-    name: "Papeleria Cucei",
+    name: "Papeleria ejemplo",
     description: "Servicio de impresiones, copias, engargolados y material escolar. Rápido y económico.",
     category: "servicios",
     icon: "fas fa-print",
@@ -19,76 +19,87 @@ const businessesData = [
     url: "copymax-express.html",
     image: "img/negocio2.jpg"
   },
+  // {
+  //   id: 3,
+  //   name: "Tech CUCEI",
+  //   description: "Ropa casual y playeras personalizadas con diseños únicos para universitarios modernos.",
+  //   category: "ropa",
+  //   icon: "fas fa-tshirt",
+  //   price: "Desde $150 MXN",
+  //   url: "techstyle-cucei.html",
+  //   image: "img/negocio3.jpg"
+  // },
+  // {
+  //   id: 4,
+  //   name: "Accesorios",
+  //   description: "Fundas para celular, cables, audífonos y gadgets tecnológicos a precios de estudiante.",
+  //   category: "accesorios",
+  //   icon: "fas fa-mobile-alt",
+  //   price: "Desde $50 MXN",
+  //   url: "accesorios-tech.html",
+  //   image: "img/negocio4.jpg"
+  // },
+  // {
+  //   id: 5,
+  //   name: "Cabeza",
+  //   description: "Decoraciones personalizadas para eventos, cumpleaños y celebraciones estudiantiles.",
+  //   category: "decoraciones",
+  //   icon: "fas fa-birthday-cake",
+  //   price: "Desde $100 MXN",
+  //   url: "crea-cucei.html",
+  //   image: "img/negocio5.jpg"
+  // },
+  // {
+  //   id: 6,
+  //   name: "Videojuegos",
+  //   description: "Venta y renta de videojuegos, consolas retro y accesorios gaming para estudiantes.",
+  //   category: "videojuegos",
+  //   icon: "fas fa-gamepad",
+  //   price: "Desde $80 MXN",
+  //   url: "gamezone-cucei.html",
+  //   image: "img/negocio6.jpg"
+  // },
+  // {
+  //   id: 7,
+  //   name: "Café",
+  //   description: "Café gourmet, bebidas calientes y postres artesanales para energizar tus estudios.",
+  //   category: "comida",
+  //   icon: "fas fa-coffee",
+  //   price: "Desde $30 MXN",
+  //   url: "cafe-ingenio.html",
+  //   image: "img/negocio7.jpg"
+  // },
+  // {
+  //   id: 8,
+  //   name: "Reparar PC",
+  //   description: "Reparación de celulares, tablets y computadoras. Diagnóstico gratuito y garantía.",
+  //   category: "servicios",
+  //   icon: "fas fa-tools",
+  //   price: "Desde $150 MXN",
+  //   url: "repair-tech.html",
+  //   image: "img/negocio8.jpg"
+  // },
+  // {
+  //   id: 9,
+  //   name: "Estilo Urbano",
+  //   description: "Zapatillas, gorras y accesorios urbanos con las últimas tendencias de moda juvenil.",
+  //   category: "ropa",
+  //   icon: "fas fa-shoe-prints",
+  //   price: "Desde $200 MXN",
+  //   url: "urban-style.html",
+  //   image: "img/negocio9.jpg"
+  // },
   {
-    id: 3,
-    name: "Tech CUCEI",
-    description: "Ropa casual y playeras personalizadas con diseños únicos para universitarios modernos.",
-    category: "ropa",
-    icon: "fas fa-tshirt",
-    price: "Desde $150 MXN",
-    url: "techstyle-cucei.html",
-    image: "img/negocio3.jpg"
-  },
-  {
-    id: 4,
-    name: "Accesorios",
-    description: "Fundas para celular, cables, audífonos y gadgets tecnológicos a precios de estudiante.",
-    category: "accesorios",
-    icon: "fas fa-mobile-alt",
-    price: "Desde $50 MXN",
-    url: "accesorios-tech.html",
-    image: "img/negocio4.jpg"
-  },
-  {
-    id: 5,
-    name: "Cabeza",
-    description: "Decoraciones personalizadas para eventos, cumpleaños y celebraciones estudiantiles.",
-    category: "decoraciones",
-    icon: "fas fa-birthday-cake",
-    price: "Desde $100 MXN",
-    url: "crea-cucei.html",
-    image: "img/negocio5.jpg"
-  },
-  {
-    id: 6,
-    name: "Videojuegos",
-    description: "Venta y renta de videojuegos, consolas retro y accesorios gaming para estudiantes.",
-    category: "videojuegos",
-    icon: "fas fa-gamepad",
-    price: "Desde $80 MXN",
-    url: "gamezone-cucei.html",
-    image: "img/negocio6.jpg"
-  },
-  {
-    id: 7,
-    name: "Café",
-    description: "Café gourmet, bebidas calientes y postres artesanales para energizar tus estudios.",
-    category: "comida",
-    icon: "fas fa-coffee",
-    price: "Desde $30 MXN",
-    url: "cafe-ingenio.html",
-    image: "img/negocio7.jpg"
-  },
-  {
-    id: 8,
-    name: "Reparar PC",
-    description: "Reparación de celulares, tablets y computadoras. Diagnóstico gratuito y garantía.",
-    category: "servicios",
-    icon: "fas fa-tools",
-    price: "Desde $150 MXN",
-    url: "repair-tech.html",
-    image: "img/negocio8.jpg"
-  },
-  {
-    id: 9,
-    name: "Estilo Urbano",
-    description: "Zapatillas, gorras y accesorios urbanos con las últimas tendencias de moda juvenil.",
-    category: "ropa",
-    icon: "fas fa-shoe-prints",
-    price: "Desde $200 MXN",
-    url: "urban-style.html",
-    image: "img/negocio9.jpg"
-  }
+  id: 10,
+  name: "NEXCODE",
+  description: "Plataforma de cursos en línea con variedad de temas y rutas de aprendizaje para potenciar tus habilidades.",
+  category: "educación",
+  icon: "fas fa-laptop-code",
+  price: "Acceso desde $99 MXN",
+  url: "https://nexcodemx.github.io/NEXCODE/",
+  image: "img/negocio10.jpg"
+}
+
 ];
 let currentBusinesses = [...businessesData];
 let currentCategory = 'todos';
@@ -274,13 +285,16 @@ class PaletteManager {
         `;
         const paletteNames = {
             ocean: 'Océano',
-            sunset: 'Atardecer',
+            trust: 'Marino',
             forest: 'Bosque',
             neon: 'Neón',
             dark: 'Oscuro',
-            royal: 'Real',
-            rosenight: 'RoseNight',
-            greenroots: 'GreenRoots',
+            royal: 'Violeta',
+            rosenight: 'Rosal',
+            greenroots: 'Eco',
+            yellow: 'Ámbar',
+            red: 'Carmesí'
+            
         };
         notification.innerHTML = `
             <i class="fas fa-palette" style="margin-right: 0.5rem; color: var(--primary-start);"></i>
