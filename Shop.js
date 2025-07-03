@@ -1,14 +1,15 @@
 const businessesData = [
-  {
+    {
     id: 1,
-    name: "Restaurante ejemplo",
-    description: "Deliciosas salchipapas, hamburguesas y snacks preparados al momento. Los mejores sabores para estudiantes.",
-    category: "comida",
-    icon: "fas fa-hamburger",
+    name: "SANZA ART",
+    description: "Cuadros Personalizados Artisticos.",
+    category: ["decoraciones", "regalos"], 
+    icon: "fas fa-image",
     price: "Desde $25 MXN",
-    url: "sabores-cucei.html",
+    url: "https://nexcodemx.github.io/SanzaArt/SanzaArt.html",
     image: "img/negocio1.jpg"
   },
+
   {
     id: 2,
     name: "Papeleria ejemplo",
@@ -119,7 +120,11 @@ function renderBusinesses(businesses) {
             <p class="business-description">${business.description}</p>
             <div class="business-category">
                 <i class="${business.icon}"></i>
-                <span>${business.category.charAt(0).toUpperCase() + business.category.slice(1)}</span>
+                <span>${
+                  Array.isArray(business.category)
+                    ? business.category.map(cat => cat.charAt(0).toUpperCase() + cat.slice(1)).join(', ')
+                    : business.category.charAt(0).toUpperCase() + business.category.slice(1)
+                }</span>
             </div>
             <div style="font-weight: bold; color: #667eea; margin-bottom: 1rem;">${business.price}</div>
             <button class="business-btn">
@@ -142,7 +147,14 @@ function renderBusinesses(businesses) {
 function filterBusinesses() {
     let filtered = businessesData;
     if (currentCategory !== 'todos') {
-        filtered = filtered.filter(business => business.category === currentCategory);
+        filtered = filtered.filter(business => {
+          if (Array.isArray(business.category)) {
+              return business.category.includes(currentCategory);
+          } else {
+              return business.category === currentCategory;
+          }
+      });
+
     }
     if (currentSearch) {
         filtered = filtered.filter(business => 
