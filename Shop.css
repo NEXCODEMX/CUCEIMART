@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -1084,4 +1087,1278 @@ body {
   #chat-options button {
     max-width: 100%;
   }
+}
+
+
+
+
+/* --- Global styles for consistency --- */
+/* Add Montserrat to your body font-family if not already there */
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Add Montserrat */
+}
+
+/* Reusable Section Titles (used in main page and support page) */
+.hero-section {
+    position: relative;
+    padding: 6rem 2rem; /* Increased padding for a grander feel */
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    background: linear-gradient(135deg, var(--primary-start) 0%, var(--primary-end) 100%);
+    border-radius: 20px; /* Consistent rounded corners */
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above any background effects */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem; /* Larger, more impactful title */
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem; /* Larger subtitle */
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400; /* Lighter weight for subtitle */
+}
+
+/* Gradient line for section titles */
+.section-title-gradient {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; /* Adjusted size for main section titles */
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 2.5rem; /* More space */
+    margin-top: 4rem; /* More space from previous section */
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.8rem; /* More padding for line */
+    line-height: 1.2;
+}
+
+.section-title-gradient::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30%; /* Shorter, more elegant line */
+    height: 4px; /* Slightly thicker */
+    background: linear-gradient(to right, var(--primary-start), var(--primary-end));
+    border-radius: 2px;
+}
+
+.section-description-centered {
+    font-size: 1.15rem; /* Slightly larger text */
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 800px; /* Wider text block */
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+
+/* --- Reusable Card Styles (like business cards) --- */
+.card {
+    background: var(--background-overlay);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-icon-wrapper {
+    transform: scale(1.1);
+}
+
+.card-icon-wrapper i {
+    font-size: 3.5rem;
+    color: white;
+}
+
+/* --- Reusable Button Styles --- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
+    color: white;
+}
+
+.btn.card-btn-secondary {
+    background: var(--background-overlay);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.btn.card-btn-secondary:hover {
+    background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.btn.card-btn-secondary:hover i {
+    color: white;
+}
+
+/* --- Specific Support Page Styles --- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.detail-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: 0.8rem;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--accent-color); /* Color de acento para los iconos de redes */
+    font-size: 2rem; /* Iconos más grandes */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.15); /* Efecto de crecimiento sutil */
+    color: var(--primary-end); /* Cambio de color al hacer hover */
+}
+
+.report-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card-btn-secondary i {
+    font-size: 2.5rem; /* Tamaño del icono dentro del botón */
+    margin-bottom: 1rem;
+    color: var(--primary-start); /* Color por defecto */
+    transition: color 0.3s ease;
+}
+
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .section-title-gradient {
+        font-size: 2rem;
+    }
+    .section-description-centered {
+        font-size: 1rem;
+    }
+    .contact-grid, .report-options-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .card {
+        padding: 1.5rem;
+    }
+    .card-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    .card-icon-wrapper i {
+        font-size: 2.5rem;
+    }
+    .card h3 {
+        font-size: 1.3rem;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+    }
+    .card-btn-secondary i {
+        font-size: 2rem;
+    }
+}
+
+
+/* --- Sección de Preguntas Frecuentes (FAQ) --- */
+.faq-section {
+    margin-top: 5rem; /* Espacio superior para separarlo de la sección anterior */
+    margin-bottom: 5rem; /* Espacio inferior antes del footer */
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--background-overlay);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color); /* Separador entre preguntas */
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--primary-start);
+}
+
+.faq-question::after {
+    content: '\2b'; /* Unicode plus sign */
+    font-size: 1.5rem;
+    color: var(--primary-start);
+    font-weight: bold;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '\2212'; /* Unicode minus sign */
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 1rem; /* Padding horizontal inicial */
+    box-sizing: border-box;
+}
+
+.faq-answer.active {
+    max-height: 200px; /* Suficientemente grande para contener la mayoría de las respuestas */
+    padding: 1rem 1rem 0; /* Padding cuando está activo */
+}
+
+.faq-answer p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+}
+
+/* Media Queries para FAQ */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 1.5rem;
+    }
+    .faq-question {
+        font-size: 1.1rem;
+        padding: 0.8rem 0;
+    }
+    .faq-question::after {
+        font-size: 1.2rem;
+    }
+    .faq-answer p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* --- Acerca De (acercaDe.html) --- */
+
+.about-hero {
+    /* Puedes ajustar colores o efectos si quieres un hero diferente al de soporte */
+    /* background: linear-gradient(135deg, var(--primary-end) 0%, var(--accent-color) 100%); */
+}
+
+.about-intro {
+    padding-top: 2rem; /* Espacio extra para la introducción */
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Espacio entre las tarjetas de valores */
+    margin-bottom: 4rem;
+}
+
+.value-card {
+    /* Hereda estilos de .card */
+    padding: 1.8rem; /* Ligeramente más compacto para 5 elementos */
+}
+
+.value-card .card-icon-wrapper {
+    /* Ajustes específicos para los iconos de valores si es necesario */
+    margin-bottom: 1rem;
+}
+
+.value-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.value-card p {
+    font-size: 0.95rem; /* Texto un poco más pequeño para caber mejor */
+    line-height: 1.5;
+}
+
+.nexcode-content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto una columna */
+    gap: 3rem; /* Espacio entre texto e imagen */
+    align-items: center; /* Alinea verticalmente los elementos */
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 992px) { /* Para pantallas más grandes, dos columnas */
+    .nexcode-content-grid {
+        grid-template-columns: 2fr 1fr; /* Texto más ancho que la imagen */
+        gap: 4rem;
+    }
+}
+
+.nexcode-text p {
+    font-size: 1.15rem; /* Buen tamaño para la lectura */
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.nexcode-text p strong {
+    color: var(--primary-start); /* Resaltar NEXCODE */
+    font-weight: 700;
+}
+
+.nexcode-image {
+    text-align: center;
+}
+
+.nexcode-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Consistente con otros elementos */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.nexcode-image img:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.social-links-about-us {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-content: flex-start; /* Alinea a la izquierda en la sección de texto */
+}
+
+.social-links-about-us a {
+    color: var(--accent-color);
+    font-size: 2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-links-about-us a:hover {
+    transform: scale(1.15);
+    color: var(--primary-end);
+}
+
+/* Media Queries específicas para "Acerca De" */
+@media (max-width: 768px) {
+    .values-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles */
+        gap: 1.5rem;
+    }
+    .value-card {
+        padding: 1.5rem;
+    }
+    .value-card h3 {
+        font-size: 1.4rem;
+    }
+    .value-card p {
+        font-size: 0.9rem;
+    }
+    .nexcode-content-grid {
+        grid-template-columns: 1fr; /* Asegura una columna en móviles */
+        gap: 2rem;
+    }
+    .nexcode-text p {
+        font-size: 1rem;
+    }
+    .social-links-about-us {
+        justify-content: center; /* Centra los iconos de redes en móviles */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ... (todo tu CSS anterior) ... */
+
+/* --- Estilo de la Sección Hero del Mapa --- */
+.map-hero {
+    /* Mantiene los estilos de .hero-section */
+}
+
+/* --- Sección Principal del Contenido del Mapa --- */
+.map-interactive-section {
+    width: 100%;
+    max-width: 1300px; /* Ancho máximo para el layout de 2 columnas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background-overlay);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* --- Layout de la Aplicación de Mapa (Teléfono + Panel) --- */
+.map-app-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* --- Encabezado de Búsqueda de la Aplicación del Mapa --- */
+.app-search-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+}
+
+.app-search-box {
+    flex-grow: 1;
+    max-width: 600px;
+    padding: 0.8rem 1.2rem 0.8rem 3rem;
+    border: 2px solid var(--primary-start);
+    border-radius: 25px;
+    font-size: 1.1rem;
+    background: var(--background-card);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-search-box::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.app-search-box:focus {
+    outline: none;
+    border-color: var(--primary-end);
+    box-shadow: 0 0 0 4px var(--shadow-color);
+}
+
+.app-search-box + .fa-search {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-start);
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.app-time-display {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    background: var(--background-card);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+/* --- Contenedor del "Teléfono" --- */
+.phone-container {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    background: var(--text-primary);
+    border: 16px solid var(--text-primary);
+    border-radius: 36px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 50px var(--primary-end);
+    overflow: hidden; /* Muy importante para el paneo */
+    animation: fadeIn 1s ease;
+    flex-shrink: 0;
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: hidden; /* También importante */
+}
+
+.phone-screen::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 6px;
+    background: var(--text-primary);
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 30px);
+    z-index: 50;
+}
+
+.map-view-container {
+    position: relative; /* Contenedor para la imagen y los pines */
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Oculta lo que se sale del "view" del teléfono */
+}
+
+.main-campus-map {
+    width: 150%; /* Hacemos la imagen más grande que su contenedor */
+    height: 150%; /* Para que haya espacio para panear */
+    position: absolute; /* Permite moverla con transform */
+    top: -25%; /* Ajuste inicial para centrar una imagen más grande */
+    left: -25%; /* Ajuste inicial */
+    object-fit: cover;
+    transition: transform 0.3s ease-out; /* Transición suave para el paneo */
+    transform: translate(0, 0); /* Posición inicial del paneo */
+}
+
+.phone-home-button {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-start);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 50;
+}
+
+.phone-home-button:hover {
+    background-color: var(--primary-end);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+/* --- Panel de Controles del Mapa --- */
+.map-controls-panel {
+    background: var(--background-overlay);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    flex-grow: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.panel-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.control-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.control-button {
+    background: var(--background-card);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.control-button:hover, .control-button.active {
+    background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.control-main-button {
+    width: 100%;
+    background: linear-gradient(45deg, var(--primary-end), var(--primary-start));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+}
+
+.control-main-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.control-button.btn-featured {
+    background: gold;
+    color: var(--text-primary);
+    border-color: gold;
+}
+.control-button.btn-featured:hover, .control-button.btn-featured.active {
+    background: linear-gradient(45deg, gold, var(--primary-end));
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* --- Controles Direccionales --- */
+.direction-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.dir-button {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary-start);
+    background: var(--background-card);
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dir-button:hover {
+    background: var(--primary-start);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+#up-button { grid-column: 2 / 3; grid-row: 1 / 2; }
+#left-button { grid-column: 1 / 2; grid-row: 2 / 3; }
+#down-button { grid-column: 2 / 3; grid-row: 3 / 4; }
+#right-button { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+
+/* Media Queries para Responsive Design */
+@media (max-width: 992px) {
+    .map-app-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    .map-controls-panel {
+        max-width: 100%;
+        width: 100%;
+        padding: 1.5rem;
+    }
+    .phone-container {
+        width: 320px;
+        height: 570px;
+    }
+}
+
+@media (max-width: 576px) {
+    .app-search-header {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .app-search-box {
+        width: 100%;
+        font-size: 1rem;
+    }
+    .app-time-display {
+        font-size: 0.85rem;
+    }
+    .phone-container {
+        width: 100%;
+        max-width: 360px;
+        height: calc(100vw * (640/360));
+        max-height: 640px;
+        border-radius: 25px;
+        border-width: 10px;
+    }
+    .phone-screen::before {
+        width: 40px;
+        height: 4px;
+        top: 8px;
+    }
+    .phone-home-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+    .panel-heading {
+        font-size: 1.4rem;
+    }
+    .control-button, .control-main-button {
+        font-size: 0.95rem;
+        padding: 8px 12px;
+    }
+    .dir-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Map Pins and Info Card --- */
+.map-pins-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* pointer-events: none;  Removido: Los pines necesitan recibir eventos de click */
+}
+
+.map-pin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-start);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 3px solid var(--background-card);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.map-pin:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--primary-end);
+}
+
+.map-pin.active {
+    box-shadow: 0 0 0 5px var(--accent-color), 0 0 15px var(--accent-color); /* Resplandor al seleccionar */
+    z-index: 15; /* Asegura que el activo esté por encima */
+}
+
+.map-pin.featured {
+    background: gold;
+    color: var(--text-primary);
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.5);
+    animation: pulse-featured 1.5s infinite alternate;
+}
+
+.map-pin.featured i {
+    color: var(--text-primary);
+}
+
+@keyframes pulse-featured {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.9; }
+}
+
+.map-pin.hidden {
+    display: none;
+}
+
+/* Tarjeta de Información del Negocio */
+.business-info-card {
+    position: absolute;
+    background: var(--background-card);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    width: 300px;
+    max-width: 90%;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    animation: fadeInScale 0.3s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.business-info-card .close-card-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.business-info-card .close-card-btn:hover {
+    color: var(--primary-end);
+}
+
+.business-info-card h3 {
+    font-size: 1.6rem;
+    color: var(--primary-start);
+    margin-bottom: 0.5rem;
+}
+
+.business-info-card .info-card-category {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.business-info-card p {
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.business-info-card .info-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.business-info-card .btn-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+}
+
+.featured-badge {
+    background: gold;
+    color: #333;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+/* ... (todo tu CSS anterior) ... */
+
+/* --- Contenedor del "Teléfono" --- */
+.phone-container {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    background: var(--text-primary); /* Color del borde del teléfono */
+    border: 16px solid var(--text-primary);
+    border-radius: 36px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 0 50px var(--primary-end); /* Sombra y glow */
+    overflow: hidden; /* **CRUCIAL: Oculta el contenido que se sale** */
+    animation: fadeIn 1s ease;
+    flex-shrink: 0;
+}
+
+.phone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: white; /* Color de la pantalla base */
+    overflow: hidden; /* **CRUCIAL: Oculta el contenido que se sale** */
+}
+
+.phone-screen::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 6px;
+    background: var(--text-primary); /* Color de la barra superior */
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 30px);
+    z-index: 50;
+}
+
+/* El viewport es el que se mueve para panear la imagen interior */
+.map-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Asegura que la imagen no se desborde del viewport */
+    transition: transform 0.3s ease-out; /* Transición suave para el paneo */
+    transform: translate(0%, 0%); /* Posición inicial */
+}
+
+.main-campus-map {
+    /* La imagen es más grande que su contenedor (.map-viewport) */
+    width: 150%; /* Por ejemplo, 150% del ancho del viewport */
+    height: 150%; /* Y 150% de la altura del viewport */
+    position: absolute;
+    top: -25%; /* Ajuste inicial para centrar la imagen dentro del viewport de 100% */
+    left: -25%; /* (100% - 150%)/2 = -25% */
+    object-fit: cover; /* Para que la imagen cubra el área sin distorsionarse */
+    /* La transición y transform se aplican al .map-viewport ahora */
+}
+
+/* ... (el resto de tu CSS) ... */
+
+/* Asegúrate de que tus pines se posicionen RELATIVOS al map-viewport */
+/* Esto ya debería estar bien si usas position: absolute; left: %; top: %; dentro de mapPinsContainer */
+.map-pins-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* No uses pointer-events: none; aquí, los pines necesitan clics */
+}
+
+.map-pin {
+    position: absolute;
+    /* ... (resto de estilos del pin) ... */
+}
+
+/* ... (resto de estilos de la tarjeta de información, etc.) ... */
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Overlay de Próximamente (Diseño Profesional desde 0) --- */
+.coming-soon-overlay {
+    position: fixed; /* Cubre toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(20px); /* Efecto de desenfoque intenso */
+    -webkit-backdrop-filter: blur(20px); /* Compatibilidad con Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Asegura que esté por encima de todo */
+    opacity: 0; /* Por defecto invisible */
+    pointer-events: none; /* No interactuable por defecto */
+    transition: opacity 1s ease-out; /* Transición suave de 1 segundo para la aparición */
+}
+
+/* Clase para activar/mostrar el overlay (controlada por JS) */
+.coming-soon-overlay.active {
+    opacity: 1;
+    pointer-events: auto; /* Se vuelve interactuable cuando está visible */
+}
+
+.coming-soon-content {
+    /* Utiliza las variables de tu tema de CUCEI Mart */
+    background: var(--background-overlay); /* Fondo de la tarjeta, translúcido */
+    backdrop-filter: blur(15px); /* Blur adicional para el contenido del popup */
+    -webkit-backdrop-filter: blur(15px); /* Compatibilidad con Safari */
+    padding: 3.5rem 2.5rem; /* Amplio padding interno para un look espacioso */
+    border-radius: 25px; /* Bordes muy redondeados */
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5); /* Sombra grande y profunda */
+    text-align: center;
+    max-width: 600px; /* Ancho máximo generoso */
+    width: 90%; /* Se adapta a pantallas más pequeñas */
+    transform: translateY(40px) scale(0.95); /* Animación inicial (se mueve y escala al aparecer) */
+    opacity: 0; /* Por defecto invisible para la animación */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Transición de 1 segundo */
+    border: 3px solid var(--primary-start); /* Borde que usa tu color primario */
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el width/height */
+}
+
+/* Animación del contenido cuando el overlay está activo */
+.coming-soon-overlay.active .coming-soon-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.coming-soon-title {
+    font-family: 'Playfair Display', serif; /* Aplicación de fuente */
+    font-size: 3.6rem; /* Título muy grande e impactante */
+    font-weight: 700; /* Negrita */
+    color: var(--primary-start); /* Tu color primario */
+    margin-bottom: 2rem; /* Espacio debajo */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); /* Sombra de texto profunda */
+    position: relative;
+    display: inline-block; /* Para que '::after' se posicione correctamente */
+    padding-bottom: 1rem; /* Espacio para la línea decorativa */
+    line-height: 1.1; /* Espaciado de línea ajustado para el título */
+    letter-spacing: 3px; /* Espaciado entre letras para elegancia */
+    text-transform: uppercase; /* Convertir a mayúsculas para mayor impacto */
+}
+
+.coming-soon-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px; /* Posición de la línea decorativa bajo el título */
+    transform: translateX(-50%);
+    width: 80%; /* Ancho de la línea */
+    height: 6px; /* Grosor de la línea */
+    background: linear-gradient(to right, var(--primary-start), var(--primary-end)); /* Gradiente de tu tema */
+    border-radius: 3px;
+}
+
+.coming-soon-message {
+    font-family: 'Montserrat', sans-serif; /* Aplicación de fuente */
+    font-size: 1.5rem; /* Texto legible y profesional */
+    font-weight: 400; /* Peso normal */
+    color: var(--text-primary); /* Tu color de texto principal */
+    margin-bottom: 2.5rem; /* Espacio debajo del mensaje */
+    line-height: 1.8; /* Excelente espaciado entre líneas para legibilidad */
+}
+
+.coming-soon-small-text {
+    font-family: 'Montserrat', sans-serif; /* Aplicación de fuente */
+    font-size: 1.1rem; /* Tamaño para la información secundaria */
+    color: var(--text-secondary); /* Tu color de texto secundario */
+    margin-bottom: 2.5rem; /* Espacio antes de los iconos sociales */
+    font-style: italic; /* Texto en cursiva */
+    opacity: 0.9;
+}
+
+.coming-soon-social {
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* Espacio amplio entre iconos */
+}
+
+.coming-soon-social a {
+    color: var(--accent-color); /* Tu color de acento para los iconos */
+    font-size: 3.5rem; /* Iconos grandes para destacar */
+    transition: transform 0.3s ease, color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.coming-soon-social a:hover {
+    transform: scale(1.3); /* Efecto de escala al pasar el mouse */
+    color: var(--primary-end); /* Cambio de color al pasar el mouse */
+}
+
+/* --- Media Queries para responsividad del overlay --- */
+@media (max-width: 768px) {
+    .coming-soon-content {
+        padding: 2.5rem 1.5rem;
+        border-radius: 15px;
+    }
+    .coming-soon-title {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .coming-soon-title::after {
+        bottom: -5px;
+        height: 4px;
+        width: 60%;
+    }
+    .coming-soon-message {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    .coming-soon-small-text {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    .coming-soon-social a {
+        font-size: 2.5rem;
+        gap: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    .coming-soon-content {
+        padding: 2rem 1rem;
+    }
+    .coming-soon-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        letter-spacing: 0px;
+    }
+    .coming-soon-title::after {
+        bottom: -3px;
+        height: 3px;
+        width: 50%;
+    }
+    .coming-soon-message {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+    .coming-soon-small-text {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    .coming-soon-social a {
+        font-size: 2rem;
+        gap: 1.5rem;
+    }
 }
