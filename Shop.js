@@ -5,7 +5,7 @@ const businessesData = [
     description: "Cuadros Personalizados Artisticos.",
     category: ["decoraciones", "regalos"], 
     icon: "fas fa-image",
-    price: "Desde $25 MXN",
+    price: "Desde $250 MXN",
     url: "https://nexcodemx.github.io/SanzaArt/SanzaArt.html",
     image: "img/negocio1.jpg"
   },
@@ -96,7 +96,7 @@ const businessesData = [
   description: "Plataforma de cursos en línea con variedad de temas y rutas de aprendizaje para potenciar tus habilidades.",
   category: "educación",
   icon: "fas fa-laptop-code",
-  price: "Acceso desde $99 MXN",
+  price: "Acceso Gratuito",
   url: "https://nexcodemx.github.io/NEXCODE/",
   image: "img/negocio10.jpg"
 }
