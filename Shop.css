@@ -18,14 +18,7 @@ body {
     top: 0;
     z-index: 1000;
 }
-.header-content {
-    display: flex;
-    justify-content: center; /* MODIFICADO: Centra los elementos horizontalmente */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    /* padding-left: 0; se puede quitar si justify-content: center */
-}
+
 /* REMOVIDO/COMENTADO: La clase .logo original que aplicaba gradientes a texto.
    Ya no es necesaria si tu logo es una imagen PNG transparente. */
 /*
@@ -39,32 +32,33 @@ body {
 }
 */
 
-.logo-container { /* Si estás usando este contenedor alrededor de tu <img> */
-    display: flex;
-    align-items: center;
-    justify-content: left; /* Asegura que la imagen se centre dentro de este contenedor si el header-content lo permite */
-    height: 100%;
-    margin-top: 0px; /* MODIFICADO: Mueve el logo un poco hacia abajo. Ajusta este valor si es necesario. */
+
+
+
+
+.logo-text-elegant {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 5px; /* Mueve el logo ligeramente hacia abajo */
+    transition: color 0.3s ease;
 }
 
-.main-logo-img { /* Esta es la clase de tu imagen de logo */
-    height: 150px; /* MODIFICADO: Altura ajustada para que el logo se vea bien y profesional */
-    width: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 100; /* REMOVIDO: Bordes redondeados para un logo de texto PNG */
-    box-shadow: none; /* REMOVIDO: Sombra por defecto para un logo limpio */
-    transition: transform 0.3s ease;
+.logo-text-elegant:hover {
+    color: var(--primary-start);
 }
 
-.main-logo-img:hover {
-    transform: scale(1.05); /* Un hover más sutil */
-    box-shadow: none; /* REMOVIDO: Sombra en hover para un logo limpio */
-}
-
-.logo-text { /* Mantengo esta clase por si tienes texto HTML adicional, pero no afectará a la imagen PNG */
-    font-size: 2rem; /* Más grande y legible */
-    font-weight: 800; /* Negrita fuerte */
-    color: #222; /* Un tono más oscuro para mejor contraste */
-    letter-spacing: 0.5px; /* Espaciado ligero entre letras */
+/* Y en tus media queries para pantallas más pequeñas, asegúrate de ajustar también el padding-left */
+@media (max-width: 768px) {
+    .logo-text-elegant {
+        font-size: 1.8rem;
+        margin-top: 2px;
+        padding-left: 10px; /* Ajusta este valor también para móviles */
+        /* o margin-left: 10px; */
+    }
 }
 
 .nav-icons {
