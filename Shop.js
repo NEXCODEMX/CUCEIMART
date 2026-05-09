@@ -11,8 +11,8 @@ const businessesData = [
         whatsapp: "523343408028",
         instagram: "https://www.instagram.com/sanza.art/",
         website: "https://nexcodemx.github.io/SanzaArt/SanzaArt.html",
-        mapX: 0.78, // EJEMPLO: Ajustar para MapaCUCEI.jpg
-        mapY: 0.40, // EJEMPLO: Ajustar para MapaCUCEI.jpg
+        mapX: 0.78, 
+        mapY: 0.40, 
         isFeatured: true,
         buildingId: "U", 
         zoneId: "lab_ingenierias"
@@ -47,23 +47,18 @@ const businessesData = [
         whatsapp: "523343408028",
         instagram: "@NexCode_MX",
         website: "https://nexcodemx.github.io/NEXCODE/",
-        mapX: undefined, // Negocio virtual, no tiene ubicación en el mapa
-        mapY: undefined, // Negocio virtual
+        mapX: undefined, 
+        mapY: undefined, 
         isFeatured: true,
         buildingId: undefined,
         zoneId: undefined
     },
-    // Añade más negocios aquí con sus datos, incluyendo mapX/mapY si tienen ubicación física
 ];
-
-// Hacer businessesData globalmente accesible para map.js
 window.businessesData = businessesData;
-
 let currentBusinesses = [...businessesData];
 let currentCategory = 'todos';
 let currentSearch = '';
 
-// --- FUNCIONES DE LA PÁGINA PRINCIPAL (CUCEIMART.html) ---
 function renderBusinesses(businesses) {
     const grid = document.getElementById('businessesGrid');
     if (!grid) return; 
@@ -173,7 +168,6 @@ function initBannerRotation() {
     }
 }
 
-// --- CLASE Y FUNCIONES GLOBALES PARA LA PALETA DE COLORES ---
 class PaletteManager {
     constructor() {
         this.currentPalette = this.getPaletteFromStorage() || 'ocean';

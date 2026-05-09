@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  /* APA: Times New Roman, 12pt, márgenes 2.54cm, interlineado doble */
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+  :root {
+    --azul-oscuro: #1a2a4a;
+    --azul-medio: #2d4a7a;
+    --azul-claro: #4a7ab5;
+    --azul-suave: #c8d8f0;
+    --azul-muy-suave: #eaf0f8;
+    --gris: #4a4a4a;
+    --blanco: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12pt;
+    color: #000;
+    background: #f0f0f0;
+    line-height: 2; /* interlineado doble APA */
+  }
+
+  .page {
+    width: 21.59cm;
+    min-height: 27.94cm;
+    margin: 1cm auto;
+    background: white;
+    padding: 2.54cm;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    page-break-after: always;
+  }
+
+  /* ---- PORTADA ---- */
+  .portada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 22cm;
+    text-align: center;
+  }
+  .portada-logo-area {
+    margin-top: 1cm;
+  }
+  .logo-hex {
+    width: 110px; height: 110px;
+    background: var(--azul-oscuro);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .logo-hex span {
+    color: white; font-size: 10pt; font-weight: bold; letter-spacing: 1px;
+    font-family: 'Times New Roman', serif;
+  }
+  .portada h1 {
+    font-size: 22pt;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+  }
+  .portada .slogan {
+    font-size: 11pt;
+    color: var(--azul-medio);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+  .divider-portada {
+    width: 80%; height: 3px;
+    background: linear-gradient(90deg, var(--azul-oscuro), var(--azul-claro), var(--azul-oscuro));
+    margin: 18px auto;
+    border-radius: 2px;
+  }
+  .portada-info {
+    width: 100%;
+  }
+  .portada-info table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+  .portada-info td {
+    padding: 4px 12px;
+    vertical-align: top;
+  }
+  .portada-info td:first-child {
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    text-align: right;
+    width: 40%;
+  }
+  .portada-footer {
+    font-size: 10pt;
+    color: var(--gris);
+    margin-top: 24px;
+    font-style: italic;
+  }
+
+  /* ---- ENCABEZADOS ---- */
+  .running-head {
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gris);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--azul-suave);
+    padding-bottom: 4px;
+  }
+  .page-number {
+    text-align: right;
+    font-size: 10pt;
+    color: var(--gris);
+  }
+
+  /* ---- TÍTULOS APA ---- */
+  h1.title-apa {
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: center;
+    color: var(--azul-oscuro);
+    margin: 16px 0 10px;
+    line-height: 1.4;
+  }
+  h2.h2-apa {
+    font-size: 13pt;
+    font-weight: bold;
+    color: var(--azul-medio);
+    margin: 18px 0 6px;
+    border-left: 4px solid var(--azul-claro);
+    padding-left: 8px;
+    line-height: 1.3;
+  }
+  h3.h3-apa {
+    font-size: 12pt;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--azul-oscuro);
+    margin: 14px 0 4px;
+    line-height: 1.3;
+  }
+
+  /* ---- PÁRRAFOS ---- */
+  p {
+    text-indent: 1.27cm;
+    text-align: justify;
+    margin-bottom: 0;
+    line-height: 2;
+  }
+  p.no-indent { text-indent: 0; }
+
+  /* ---- TABLA GENERAL ---- */
+  .tabla-apa {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+    margin: 12px 0 6px;
+    line-height: 1.4;
+  }
+  .tabla-apa caption {
+    font-size: 10.5pt;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 4px;
+    color: var(--azul-oscuro);
+    caption-side: top;
+  }
+  .tabla-apa thead tr {
+    background: var(--azul-oscuro);
+    color: white;
+  }
+  .tabla-apa thead th {
+    padding: 7px 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 10.5pt;
+  }
+  .tabla-apa tbody tr:nth-child(even) {
+    background: var(--azul-muy-suave);
+  }
+  .tabla-apa tbody tr:hover {
+    background: var(--azul-suave);
+  }
+  .tabla-apa td {
+    padding: 6px 10px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--azul-suave);
+  }
+  .tabla-apa tfoot td {
+    font-size: 9.5pt;
+    color: var(--gris);
+    font-style: italic;
+    padding-top: 4px;
+    border-top: 2px solid var(--azul-oscuro);
+  }
+  .nota-tabla {
+    font-size: 9.5pt;
+    font-style: italic;
+    color: var(--gris);
+    text-indent: 0;
+    margin-top: 2px;
+  }
+
+  /* ---- CANVAS ---- */
+  .canvas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 6px;
+    width: 100%;
+    font-size: 9pt;
+    line-height: 1.4;
+    margin: 12px 0;
+  }
+  .canvas-cell {
+    background: var(--azul-muy-suave);
+    border: 1.5px solid var(--azul-claro);
+    border-radius: 6px;
+    padding: 8px 9px;
+    min-height: 120px;
+  }
+  .canvas-cell.tall {
+    grid-row: span 2;
+    min-height: 260px;
+  }
+  .canvas-cell h4 {
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--azul-claro);
+    padding-bottom: 3px;
+  }
+  .canvas-cell ul {
+    padding-left: 12px;
+    margin: 0;
+  }
+  .canvas-cell ul li {
+    margin-bottom: 3px;
+    font-size: 8.5pt;
+    line-height: 1.3;
+  }
+  .canvas-cell.accent {
+    background: var(--azul-suave);
+    border-color: var(--azul-medio);
+  }
+  .canvas-cell.dark {
+    background: var(--azul-oscuro);
+    border-color: var(--azul-medio);
+    color: white;
+  }
+  .canvas-cell.dark h4 {
+    color: #b8d0f0;
+    border-bottom-color: var(--azul-claro);
+  }
+  .canvas-label {
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    letter-spacing: 3px;
+    margin: 6px 0 10px;
+    border-top: 3px solid var(--azul-oscuro);
+    border-bottom: 3px solid var(--azul-oscuro);
+    padding: 6px 0;
+  }
+
+  /* ---- VALORES ---- */
+  .valores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .valor-card {
+    background: var(--azul-muy-suave);
+    border: 1.5px solid var(--azul-claro);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .valor-card .icono {
+    width: 36px; height: 36px;
+    background: var(--azul-oscuro);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 6px;
+    color: white;
+    font-size: 16px;
+  }
+  .valor-card h4 {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    margin-bottom: 3px;
+  }
+  .valor-card p {
+    font-size: 9.5pt;
+    text-indent: 0;
+    text-align: center;
+    line-height: 1.4;
+    color: var(--gris);
+  }
+
+  /* ---- MISIÓN VISIÓN CAJAS ---- */
+  .mv-box {
+    border: 2px solid var(--azul-claro);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    background: var(--azul-muy-suave);
+  }
+  .mv-box h4 {
+    color: var(--azul-oscuro);
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .mv-box p {
+    text-indent: 0;
+    font-size: 10.5pt;
+    line-height: 1.6;
+    color: #111;
+  }
+
+  /* ---- FLUJOGRAMA PERMISOS ---- */
+  .flujo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 14px 0;
+  }
+  .flujo-step {
+    width: 92%;
+    background: var(--azul-muy-suave);
+    border: 1.5px solid var(--azul-claro);
+    border-radius: 8px;
+    padding: 9px 16px;
+    text-align: left;
+    font-size: 9.5pt;
+    position: relative;
+  }
+  .flujo-step h4 {
+    font-size: 10pt;
+    font-weight: bold;
+    color: var(--azul-oscuro);
+    margin-bottom: 2px;
+  }
+  .flujo-arrow {
+    font-size: 18pt;
+    color: var(--azul-medio);
+    margin: 2px 0;
+  }
+  .flujo-step.dark {
+    background: var(--azul-oscuro);
+    border-color: var(--azul-medio);
+    color: white;
+  }
+  .flujo-step.dark h4 { color: #b8d0f0; }
+  .step-badge {
+    display: inline-block;
+    background: var(--azul-oscuro);
+    color: white;
+    font-size: 8.5pt;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px; height: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ---- BIBLIOGRAFÍA ---- */
+  .bib-entry {
+    text-indent: -1.27cm;
+    padding-left: 1.27cm;
+    line-height: 2;
+    font-size: 11pt;
+    margin-bottom: 0;
+  }
+
+  /* ---- UTILIDADES ---- */
+  .text-center { text-align: center; }
+  .mt-8 { margin-top: 8px; }
+  .mb-4 { margin-bottom: 4px; }
+  .highlight-box {
+    background: var(--azul-oscuro);
+    color: white;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 10px 0;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .highlight-box span { font-weight: bold; font-size: 11.5pt; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 2.54cm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PÁGINA 1: PORTADA ===== -->
+<div class="page">
+  <div class="portada">
+    <div class="portada-logo-area">
+      <div class="logo-hex"><span>CUCEI<br>MART</span></div>
+      <h1>CUCEI MART</h1>
+      <div class="slogan">"Tu punto de emprendimiento universitario"</div>
+      <div class="divider-portada"></div>
+    </div>
+
+    <div style="text-align:center; line-height:1.8;">
+      <p class="no-indent" style="font-size:14pt; font-weight:bold; color:#1a2a4a;">TRABAJO FINAL</p>
+      <p class="no-indent" style="font-size:12pt; font-style:italic;">Modelo Canvas de Negocio e Investigación de<br>Permisos y Licencias para la Apertura de un Negocio</p>
+    </div>
+
+    <div class="portada-info">
+      <div class="divider-portada"></div>
+      <table>
+        <tr><td>Materia:</td><td>Emprendimiento</td></tr>
+        <tr><td>Docente:</td><td>Rocío del Carmen Morgan Franco</td></tr>
+        <tr><td>Integrantes:</td><td>
+          Carlos Maximiliano Fonseca Farfán<br>
+          Christian Alejandro García Ramírez<br>
+          Ragknos Demian Fernández Agraz Rodríguez
+        </td></tr>
+        <tr><td>Institución:</td><td>Centro Universitario de Ciencias Exactas e Ingenierías (CUCEI) — Universidad de Guadalajara</td></tr>
+        <tr><td>Fecha de entrega:</td><td>9 de mayo de 2026</td></tr>
+      </table>
+      <div class="divider-portada"></div>
+    </div>
+    <p class="portada-footer no-indent">Proyecto desarrollado por NEXCODE · Guadalajara, Jalisco, México</p>
+  </div>
+</div>
+
+<!-- ===== PÁGINA 2: INTRODUCCIÓN ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">2</span>
+  </div>
+
+  <h1 class="title-apa">Introducción</h1>
+
+  <p>El presente trabajo tiene como propósito documentar y estructurar el modelo de negocio de <em>CUCEI MART</em>, una plataforma digital de comercio electrónico desarrollada por el equipo <em>NEXCODE</em>, orientada a la comunidad universitaria del Centro Universitario de Ciencias Exactas e Ingenierías (CUCEI) de la Universidad de Guadalajara. El documento ha sido elaborado en el marco de la asignatura de Emprendimiento, bajo la guía de la docente Rocío del Carmen Morgan Franco, y responde a los lineamientos del Manual de Publicaciones de la American Psychological Association (APA), séptima edición.</p>
+
+  <p>El trabajo se organiza en cuatro grandes secciones. En primer lugar, se desarrolla la justificación del negocio, que incluye la conceptualización del proyecto, su misión, visión y valores institucionales, definiendo con claridad la propuesta de valor y el público al que va dirigida la plataforma. En segundo lugar, se presenta el Modelo Canvas de Negocio, herramienta de gestión estratégica que permite visualizar de manera estructurada y sintética los nueve bloques que conforman la lógica de valor de <em>CUCEI MART</em>. En tercer lugar, se exponen los resultados de la investigación sobre los requisitos legales, administrativos y fiscales necesarios para la apertura y operación formal de un negocio digital en el municipio de Guadalajara, Jalisco, incluyendo permisos municipales, protección civil, salubridad, régimen fiscal y contable. Finalmente, se incluye la bibliografía conforme a los criterios APA, con fuentes confiables en español. Este documento pretende demostrar tanto la viabilidad del emprendimiento como el dominio conceptual de las herramientas de planeación de negocios.</p>
+</div>
+
+<!-- ===== PÁGINA 3: JUSTIFICACIÓN ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">3</span>
+  </div>
+
+  <h1 class="title-apa">Justificación</h1>
+
+  <h2 class="h2-apa">3.1 Concepto del Negocio</h2>
+  <p><em>CUCEI MART</em> es una plataforma web de comercio electrónico universitario diseñada para conectar a los estudiantes, profesores y personal del CUCEI con los emprendedores que operan dentro y en torno al campus. La plataforma actúa como un motor de búsqueda visual que permite a los usuarios localizar productos y servicios por categoría, nombre o palabras clave, facilitando la interacción entre compradores y vendedores dentro de un ecosistema universitario organizado, profesional y seguro.</p>
+
+  <p>La idea nació de la observación directa de una problemática real: la información sobre los emprendimientos que operan en CUCEI se encontraba dispersa en grupos de WhatsApp, redes sociales informales y volantes físicos, sin ningún canal centralizado ni estandarizado. Ragknos Demian Fernández Agraz Rodríguez, estudiante de la institución, identificó esta necesidad y conceptualizó <em>CUCEI MART</em> como solución digital. El giro fue seleccionado por su alto impacto social dentro del campus, su escalabilidad tecnológica y la ausencia de competencia directa en el entorno universitario.</p>
+
+  <p>El producto va dirigido principalmente a dos segmentos: (a) <strong>estudiantes consumidores</strong>, quienes buscan productos y servicios de manera rápida y confiable dentro del campus, y (b) <strong>emprendedores universitarios</strong>, quienes necesitan visibilidad profesional y una herramienta de bajo costo para promocionar sus negocios. La plataforma es de acceso gratuito para el registro básico, con opciones de publicidad destacada de pago. El equipo de desarrollo, denominado <em>NEXCODE</em>, está integrado por los tres estudiantes que firman el presente trabajo.</p>
+
+  <div class="highlight-box">
+    <span>Dato relevante:</span> Según el análisis preliminar realizado por el equipo NEXCODE, el 72% de los encuestados dentro del campus manifestó que desearía contar con una aplicación que concentre la información de productos, servicios, horarios y precios de los emprendedores universitarios (NEXCODE, 2025).
+  </div>
+
+  <h2 class="h2-apa">3.2 Misión</h2>
+  <div class="mv-box">
+    <h4>Misión de CUCEI MART</h4>
+    <p>Desarrollar y mantener una plataforma de comercio electrónico universitaria que fomente la economía colaborativa, la innovación tecnológica y el crecimiento de los emprendedores dentro del Centro Universitario de Ciencias Exactas e Ingenierías (CUCEI). Buscamos ofrecer un entorno seguro, confiable y eficiente que facilite la compraventa, el intercambio de servicios y la visibilidad de proyectos estudiantiles, mediante herramientas digitales modernas y accesibles para toda la comunidad universitaria.</p>
+  </div>
+
+  <h2 class="h2-apa">3.3 Visión</h2>
+  <div class="mv-box">
+    <h4>Visión de CUCEI MART</h4>
+    <p>Consolidar a <em>CUCEI MART</em> como la plataforma digital universitaria líder en el ámbito académico y tecnológico, reconocida por impulsar el emprendimiento estudiantil, la transformación digital y la creación de comunidades colaborativas que conecten talento, creatividad y desarrollo económico dentro y fuera del entorno universitario, expandiéndose a otros centros universitarios de la Universidad de Guadalajara.</p>
+  </div>
+</div>
+
+<!-- ===== PÁGINA 4: VALORES ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">4</span>
+  </div>
+
+  <h2 class="h2-apa">3.4 Valores del Negocio</h2>
+  <p>Los valores constituyen el fundamento ético y operativo de <em>CUCEI MART</em>. Guían las decisiones de desarrollo, las relaciones con los usuarios y la cultura organizacional del equipo NEXCODE. A continuación se presentan los cinco valores principales:</p>
+
+  <div class="valores-grid" style="margin-top:14px;">
+    <div class="valor-card">
+      <div class="icono">💡</div>
+      <h4>Innovación</h4>
+      <p>Búsqueda constante de soluciones tecnológicas creativas y eficientes que mejoren la experiencia del usuario y la eficacia de la plataforma.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icono">🤝</div>
+      <h4>Comunidad</h4>
+      <p>Fomento de la colaboración y el apoyo mutuo entre los miembros de CUCEI, creando un ecosistema de crecimiento compartido y solidario.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icono">🔒</div>
+      <h4>Responsabilidad</h4>
+      <p>Compromiso ético en el manejo de la información, los datos personales y las relaciones comerciales con todos los usuarios de la plataforma.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icono">💎</div>
+      <h4>Calidad</h4>
+      <p>Esfuerzo permanente por mantener altos estándares técnicos y de servicio, tanto en la plataforma como en los emprendimientos que integra.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icono">👁️</div>
+      <h4>Transparencia</h4>
+      <p>Promoción de prácticas honestas y verificables en la gestión del proyecto, las transacciones comerciales y la comunicación con los usuarios.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icono">📈</div>
+      <h4>Emprendimiento</h4>
+      <p>Pilar para que las ideas de la comunidad CUCEI crezcan, prosperen y alcancen su máximo potencial dentro del ecosistema universitario digital.</p>
+    </div>
+  </div>
+
+  <p class="nota-tabla" style="margin-top:8px;">Nota. Valores definidos con base en el Acta Constitutiva de CUCEI MART (NEXCODE, 2025) y el Documento de Diseño del proyecto.</p>
+
+</div>
+
+<!-- ===== PÁGINA 5: CANVAS PARTE 1 ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">5</span>
+  </div>
+
+  <h1 class="title-apa">Modelo Canvas de Negocio</h1>
+  <p>El Modelo Canvas, propuesto por Osterwalder e Pigneur (2011), es una herramienta de gestión estratégica que permite describir, diseñar y analizar la lógica de un modelo de negocio a través de nueve bloques interrelacionados. A continuación se presenta el Canvas de <em>CUCEI MART</em>:</p>
+
+  <div class="canvas-label">MODELO CANVAS — CUCEI MART</div>
+
+  <!-- ROW 1 del canvas: 5 columnas -->
+  <div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; gap:6px; margin-bottom:6px;">
+
+    <!-- Socios Clave (tall) -->
+    <div class="canvas-cell" style="grid-row:span 2; min-height:280px;">
+      <h4>🤝 Socios Clave</h4>
+      <ul>
+        <li>Universidad de Guadalajara / CUCEI (respaldo institucional)</li>
+        <li>Emprendedores universitarios registrados</li>
+        <li>Proveedores de hosting y servicios cloud (Render, Vercel)</li>
+        <li>NEXCODE (equipo desarrollador)</li>
+        <li>Profesores y difusores del campus</li>
+        <li>Plataformas de pago digitales (futuro)</li>
+      </ul>
+    </div>
+
+    <!-- Actividades Clave -->
+    <div class="canvas-cell">
+      <h4>⚙️ Actividades Clave</h4>
+      <ul>
+        <li>Desarrollo y mantenimiento de la plataforma web</li>
+        <li>Alta y verificación de emprendedores</li>
+        <li>Gestión del chatbot MART</li>
+        <li>Moderación de reseñas</li>
+        <li>Campañas de difusión en campus</li>
+        <li>Soporte técnico continuo</li>
+      </ul>
+    </div>
+
+    <!-- Propuesta de Valor (tall) -->
+    <div class="canvas-cell accent" style="grid-row:span 2; min-height:280px;">
+      <h4>⭐ Propuesta de Valor</h4>
+      <ul>
+        <li><strong>Para compradores:</strong> acceso rápido, organizado y gratuito a todos los emprendimientos del campus en una sola plataforma</li>
+        <li><strong>Para emprendedores:</strong> visibilidad profesional gratuita, publicidad destacada y herramientas digitales para crecer</li>
+        <li>Buscador con filtros por categoría</li>
+        <li>Mapa interactivo del campus</li>
+        <li>Sistema de reputación y reseñas</li>
+        <li>Chatbot de atención (MART)</li>
+        <li>Paletas de color personalizables</li>
+        <li>Desarrollo web por NEXCODE</li>
+      </ul>
+    </div>
+
+    <!-- Relación con Clientes -->
+    <div class="canvas-cell">
+      <h4>❤️ Relación con Clientes</h4>
+      <ul>
+        <li>Autoservicio digital (plataforma web)</li>
+        <li>Chatbot interactivo (MART)</li>
+        <li>Soporte por email y WhatsApp</li>
+        <li>Comunidad universitaria activa</li>
+        <li>Notificaciones y ofertas</li>
+      </ul>
+    </div>
+
+    <!-- Segmentos de Clientes (tall) -->
+    <div class="canvas-cell dark" style="grid-row:span 2; min-height:280px;">
+      <h4>👥 Segmentos de Clientes</h4>
+      <ul>
+        <li><strong>Estudiantes CUCEI</strong> — Principal segmento consumidor que busca productos y servicios en el campus</li>
+        <li><strong>Emprendedores universitarios</strong> — Alumnos, docentes y personal con negocios propios que requieren visibilidad</li>
+        <li><strong>Docentes y personal administrativo</strong> — Usuarios potenciales de servicios del campus</li>
+        <li><strong>Empresas externas</strong> — Interesadas en publicidad dirigida al segmento universitario</li>
+      </ul>
+    </div>
+
+    <!-- Recursos Clave -->
+    <div class="canvas-cell">
+      <h4>🏗️ Recursos Clave</h4>
+      <ul>
+        <li>Plataforma web React + Node.js</li>
+        <li>Base de datos PostgreSQL</li>
+        <li>Equipo NEXCODE (3 desarrolladores)</li>
+        <li>Marca CUCEI MART + logotipo</li>
+        <li>Capital inicial: $7,000 MXN</li>
+        <li>Infraestructura cloud</li>
+      </ul>
+    </div>
+
+    <!-- Canales -->
+    <div class="canvas-cell">
+      <h4>📢 Canales</h4>
+      <ul>
+        <li>Sitio web cuceimart (GitHub Pages / Render)</li>
+        <li>Instagram @NexCode_MX</li>
+        <li>WhatsApp Business</li>
+        <li>YouTube @NexCodeMX</li>
+        <li>GitHub NEXCODEMX</li>
+        <li>Difusión boca a boca en campus</li>
+        <li>Volantes y carteles físicos</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ROW INFERIOR: Estructura de Costes y Fuentes de Ingresos -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+    <div class="canvas-cell accent">
+      <h4>💸 Estructura de Costes</h4>
+      <ul>
+        <li>Desarrollo y mantenimiento de software (horas equipo NEXCODE)</li>
+        <li>Hosting y servicios cloud (Render, Vercel, dominio web)</li>
+        <li>Diseño gráfico y branding</li>
+        <li>Campañas de difusión y marketing en campus</li>
+        <li>Infraestructura de base de datos (PostgreSQL)</li>
+        <li>Soporte técnico y actualizaciones continuas</li>
+      </ul>
+    </div>
+    <div class="canvas-cell dark">
+      <h4>💰 Fuentes de Ingresos</h4>
+      <ul>
+        <li><strong>Publicidad destacada:</strong> banners y carrusel de emprendedores en página principal (costo por posición)</li>
+        <li><strong>Desarrollo web para emprendedores:</strong> servicios de NEXCODE para creación de páginas personalizadas</li>
+        <li><strong>Cursos en línea:</strong> plataforma NEXCODE de capacitación digital</li>
+        <li><strong>Suscripciones premium:</strong> funciones avanzadas para emprendedores (futuro)</li>
+        <li>Registro básico: <strong>GRATUITO</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p class="nota-tabla">Nota. Canvas elaborado con base en la metodología de Osterwalder e Pigneur (2011) y la información del proyecto CUCEI MART (NEXCODE, 2025).</p>
+</div>
+
+<!-- ===== PÁGINA 6: PERMISOS Y LICENCIAS ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">6</span>
+  </div>
+
+  <h1 class="title-apa">Permisos, Licencias y Régimen Fiscal para la Operación de un Negocio Digital en Guadalajara, Jalisco</h1>
+
+  <p>La apertura y operación formal de un negocio, incluso de naturaleza digital, implica el cumplimiento de una serie de requisitos legales, municipales, sanitarios y fiscales. A continuación se presenta la investigación correspondiente para la formalización de <em>CUCEI MART</em> como Persona Física con Actividad Empresarial (PFAE) con domicilio en Guadalajara, Jalisco.</p>
+
+  <h2 class="h2-apa">5.1 Permisos y Licencias Municipales</h2>
+
+  <table class="tabla-apa">
+    <caption>Tabla 1<br><em>Permisos Municipales Requeridos — Municipio de Guadalajara, Jalisco</em></caption>
+    <thead>
+      <tr>
+        <th>Trámite</th>
+        <th>Dependencia</th>
+        <th>Descripción</th>
+        <th>Costo aproximado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Licencia de Uso de Suelo</strong></td>
+        <td>Dirección de Obras Públicas del Municipio de Guadalajara</td>
+        <td>Certifica que la actividad comercial es compatible con el uso de suelo autorizado en el domicilio del negocio</td>
+        <td>$500–$2,500 MXN</td>
+      </tr>
+      <tr>
+        <td><strong>Licencia de Funcionamiento</strong></td>
+        <td>Dirección de Padrón y Licencias del Municipio</td>
+        <td>Autorización municipal para operar un establecimiento comercial; se renueva anualmente</td>
+        <td>$800–$3,000 MXN (variable por giro)</td>
+      </tr>
+      <tr>
+        <td><strong>Aviso de Apertura (SARE)</strong></td>
+        <td>Sistema de Apertura Rápida de Empresas — SARE Guadalajara</td>
+        <td>Para negocios de bajo riesgo; permite iniciar operaciones en 72 horas mediante trámite simplificado</td>
+        <td>Sin costo</td>
+      </tr>
+      <tr>
+        <td><strong>Registro Estatal de Contribuyentes</strong></td>
+        <td>Secretaría de Finanzas del Estado de Jalisco</td>
+        <td>Registro obligatorio para contribuyentes con actividad económica en el estado</td>
+        <td>Sin costo</td>
+      </tr>
+    </tbody>
+    <tfoot><tr><td colspan="4">Nota. Información obtenida del portal del Municipio de Guadalajara (2024) y del SARE Jalisco (2024).</td></tr></tfoot>
+  </table>
+
+  <h2 class="h2-apa">5.2 Protección Civil</h2>
+  <table class="tabla-apa">
+    <caption>Tabla 2<br><em>Requisitos de Protección Civil para Establecimientos Comerciales</em></caption>
+    <thead>
+      <tr><th>Requisito</th><th>Dependencia</th><th>Descripción</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Visto Bueno de Protección Civil</strong></td>
+        <td>Unidad Municipal de Protección Civil de Guadalajara</td>
+        <td>Verificación de condiciones de seguridad del establecimiento: extintores, salidas de emergencia, señalética</td>
+      </tr>
+      <tr>
+        <td><strong>Programa Interno de Protección Civil</strong></td>
+        <td>Coordinación Estatal de Protección Civil Jalisco</td>
+        <td>Obligatorio para establecimientos con afluencia de público; incluye plan de emergencias y brigadas de respuesta</td>
+      </tr>
+      <tr>
+        <td><strong>Dictamen de Uso de Suelo y Seguridad Estructural</strong></td>
+        <td>Obras Públicas Municipales</td>
+        <td>Para negocios con instalaciones físicas; no aplica si la operación es 100% digital/domiciliaria</td>
+      </tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Nota. Para negocios operados desde domicilio particular sin atención al público, algunos requisitos de protección civil pueden ser opcionales (Municipio de Guadalajara, 2024).</td></tr></tfoot>
+  </table>
+
+  <p>Dado que <em>CUCEI MART</em> es una plataforma digital que opera principalmente en línea, sin local físico de atención al público, los requisitos de protección civil se simplifican considerablemente. Sin embargo, si en el futuro se estableciera una oficina de atención presencial, será obligatorio tramitar el Visto Bueno de Protección Civil.</p>
+</div>
+
+<!-- ===== PÁGINA 7: SALUBRIDAD + FISCAL ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">7</span>
+  </div>
+
+  <h2 class="h2-apa">5.3 Permisos de Salubridad</h2>
+  <table class="tabla-apa">
+    <caption>Tabla 3<br><em>Licencias Sanitarias Aplicables a Negocios Digitales y de Servicios</em></caption>
+    <thead>
+      <tr><th>Trámite</th><th>Dependencia</th><th>Aplicabilidad a CUCEI MART</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Aviso de Funcionamiento ante COFEPRIS</strong></td>
+        <td>Comisión Federal para la Protección contra Riesgos Sanitarios (COFEPRIS)</td>
+        <td>Aplica si se comercializan productos alimenticios, cosméticos o de salud. Para CUCEI MART como plataforma intermediaria, <em>no aplica directamente</em>; recae en cada emprendedor registrado.</td>
+      </tr>
+      <tr>
+        <td><strong>Licencia Sanitaria</strong></td>
+        <td>Secretaría de Salud Jalisco / COFEPRIS</td>
+        <td>Obligatoria para establecimientos que fabrican, almacenan o comercializan alimentos. Para plataformas digitales intermediarias: <em>no requerida directamente</em>.</td>
+      </tr>
+      <tr>
+        <td><strong>Registro como plataforma digital de intermediación</strong></td>
+        <td>Secretaría de Economía (SE)</td>
+        <td>Recomendable para plataformas de marketplace que conectan vendedores con compradores; otorga certeza jurídica a las transacciones.</td>
+      </tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Nota. COFEPRIS (2023); Secretaría de Salud Jalisco (2024).</td></tr></tfoot>
+  </table>
+
+  <h2 class="h2-apa">5.4 Régimen Fiscal</h2>
+  <table class="tabla-apa">
+    <caption>Tabla 4<br><em>Régimen Fiscal Recomendado para CUCEI MART — SAT México</em></caption>
+    <thead>
+      <tr><th>Concepto</th><th>Detalle</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Tipo de persona</strong></td>
+        <td>Persona Física con Actividad Empresarial (PFAE)</td>
+      </tr>
+      <tr>
+        <td><strong>Régimen recomendado</strong></td>
+        <td>Régimen Simplificado de Confianza (RESICO-PF), para ingresos hasta $3,500,000 MXN anuales</td>
+      </tr>
+      <tr>
+        <td><strong>Tasa de ISR en RESICO</strong></td>
+        <td>Del 1% al 2.5% sobre ingresos cobrados (tasa preferencial vs. régimen general)</td>
+      </tr>
+      <tr>
+        <td><strong>IVA</strong></td>
+        <td>16% sobre servicios digitales; se declara mensualmente ante el SAT</td>
+      </tr>
+      <tr>
+        <td><strong>Registro en el SAT</strong></td>
+        <td>Trámite gratuito; requiere CURP, correo electrónico, comprobante de domicilio y e.firma</td>
+      </tr>
+      <tr>
+        <td><strong>Facturación electrónica</strong></td>
+        <td>CFDI versión 4.0 obligatorio para todas las transacciones con clientes; emisión a través de un PAC autorizado por el SAT</td>
+      </tr>
+      <tr>
+        <td><strong>Declaraciones</strong></td>
+        <td>Mensual (IVA y pagos provisionales ISR) y anual (declaración anual de ISR)</td>
+      </tr>
+      <tr>
+        <td><strong>Plataformas digitales</strong></td>
+        <td>En caso de recibir pagos a través de plataformas tecnológicas (Stripe, PayPal, etc.), aplica retención especial según Artículo 113-A de la LISR</td>
+      </tr>
+    </tbody>
+    <tfoot><tr><td colspan="2">Nota. Servicio de Administración Tributaria (SAT, 2024); Ley del Impuesto Sobre la Renta (LISR, 2024).</td></tr></tfoot>
+  </table>
+
+  <h2 class="h2-apa">5.5 Régimen Contable</h2>
+  <table class="tabla-apa">
+    <caption>Tabla 5<br><em>Obligaciones Contables para PFAE con Actividad Empresarial Digital</em></caption>
+    <thead>
+      <tr><th>Obligación</th><th>Periodicidad</th><th>Descripción</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Libro de ingresos y egresos</strong></td>
+        <td>Permanente</td>
+        <td>Registro cronológico de todos los ingresos percibidos y gastos realizados en la operación del negocio</td>
+      </tr>
+      <tr>
+        <td><strong>Conservación de comprobantes</strong></td>
+        <td>5 años</td>
+        <td>Facturas, recibos y CFDI deben conservarse en archivo físico o digital durante al menos 5 años (Código Fiscal de la Federación, Art. 30)</td>
+      </tr>
+      <tr>
+        <td><strong>Contabilidad electrónica</strong></td>
+        <td>Mensual</td>
+        <td>Envío al SAT del catálogo de cuentas y balanza de comprobación a través del buzón tributario (aplica a RESICO solo si supera cierto umbral de ingresos)</td>
+      </tr>
+      <tr>
+        <td><strong>Declaración anual</strong></td>
+        <td>Anual (abril)</td>
+        <td>Resumen fiscal del ejercicio; determina si existe saldo a favor o impuesto a pagar al SAT</td>
+      </tr>
+      <tr>
+        <td><strong>Apertura de cuenta bancaria empresarial</strong></td>
+        <td>Única vez</td>
+        <td>Recomendada para separar finanzas personales de las del negocio; requisito para recibir pagos con comprobante fiscal</td>
+      </tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">Nota. Código Fiscal de la Federación (CFF, 2024); SAT (2024); Instituto Mexicano de Contadores Públicos (IMCP, 2023).</td></tr></tfoot>
+  </table>
+</div>
+
+<!-- ===== PÁGINA 8: FLUJOGRAMA + BIBLIOGRAFÍA ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">8</span>
+  </div>
+
+  <h2 class="h2-apa">5.6 Flujograma del Proceso de Apertura</h2>
+  <p>A continuación se presenta el proceso secuencial recomendado para la apertura formal de <em>CUCEI MART</em> como negocio digital registrado en Guadalajara, Jalisco:</p>
+
+  <div class="flujo-container" style="margin-top:12px;">
+    <div class="flujo-step dark">
+      <h4><span class="step-badge">1</span> Obtención del RFC y alta en el SAT</h4>
+      <span style="font-size:9pt;">Persona Física con Actividad Empresarial — Régimen Simplificado de Confianza (RESICO-PF) · Trámite gratuito en línea o en módulo SAT</span>
+    </div>
+    <div class="flujo-arrow">▼</div>
+    <div class="flujo-step">
+      <h4><span class="step-badge" style="background:#1a2a4a;color:white;">2</span> Aviso de Apertura (SARE)</h4>
+      <span style="font-size:9pt;">Sistema de Apertura Rápida de Empresas del Municipio de Guadalajara · Negocios de bajo riesgo: autorización en 72 horas · Sin costo</span>
+    </div>
+    <div class="flujo-arrow">▼</div>
+    <div class="flujo-step">
+      <h4><span class="step-badge" style="background:#1a2a4a;color:white;">3</span> Licencia de Uso de Suelo</h4>
+      <span style="font-size:9pt;">Dirección de Obras Públicas del Municipio de Guadalajara · Confirma compatibilidad del giro con el domicilio declarado</span>
+    </div>
+    <div class="flujo-arrow">▼</div>
+    <div class="flujo-step">
+      <h4><span class="step-badge" style="background:#1a2a4a;color:white;">4</span> Licencia Municipal de Funcionamiento</h4>
+      <span style="font-size:9pt;">Dirección de Padrón y Licencias · Renovación anual obligatoria · Costo variable según giro y superficie</span>
+    </div>
+    <div class="flujo-arrow">▼</div>
+    <div class="flujo-step">
+      <h4><span class="step-badge" style="background:#1a2a4a;color:white;">5</span> Registro en el Padrón Estatal de Contribuyentes</h4>
+      <span style="font-size:9pt;">Secretaría de Finanzas del Estado de Jalisco · Gratuito · Complementa el registro federal ante el SAT</span>
+    </div>
+    <div class="flujo-arrow">▼</div>
+    <div class="flujo-step dark">
+      <h4><span class="step-badge">6</span> Apertura de Cuenta Bancaria Empresarial e Inicio de Operaciones</h4>
+      <span style="font-size:9pt;">Separación de finanzas personales y del negocio · Habilitación del sistema de facturación electrónica (CFDI 4.0) · Inicio formal de operaciones CUCEI MART</span>
+    </div>
+  </div>
+
+  <p class="nota-tabla" style="margin-top:8px;">Nota. Flujograma elaborado con base en los portales del SAT (2024), Municipio de Guadalajara (2024) y SARE Jalisco (2024).</p>
+
+</div>
+
+<!-- ===== PÁGINA 9: BIBLIOGRAFÍA ===== -->
+<div class="page">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+    <span class="running-head">CUCEI MART — TRABAJO FINAL</span>
+    <span class="page-number">9</span>
+  </div>
+
+  <h1 class="title-apa">Referencias</h1>
+
+  <p class="bib-entry">Cámara de Diputados del H. Congreso de la Unión. (2024). <em>Código Fiscal de la Federación</em> (última reforma publicada DOF 12-11-2024). Diario Oficial de la Federación. https://www.diputados.gob.mx/LeyesBiblio/pdf/CFF.pdf</p>
+
+  <p class="bib-entry">Cámara de Diputados del H. Congreso de la Unión. (2024). <em>Ley del Impuesto sobre la Renta</em> (última reforma publicada DOF 12-11-2024). Diario Oficial de la Federación. https://www.diputados.gob.mx/LeyesBiblio/pdf/LISR.pdf</p>
+
+  <p class="bib-entry">Comisión Federal para la Protección contra Riesgos Sanitarios. (2023). <em>Guía de trámites y servicios: Aviso de funcionamiento para establecimientos mercantiles</em>. COFEPRIS. https://www.gob.mx/cofepris/acciones-y-programas/aviso-de-funcionamiento</p>
+
+  <p class="bib-entry">Instituto Mexicano de Contadores Públicos. (2023). <em>Normas de información financiera (NIF) 2023</em>. IMCP.</p>
+
+  <p class="bib-entry">Municipio de Guadalajara. (2024). <em>Trámites y servicios: Licencia de funcionamiento y uso de suelo</em>. Gobierno Municipal de Guadalajara. https://www.guadalajara.gob.mx/tramites-y-servicios</p>
+
+  <p class="bib-entry">NEXCODE. (2025). <em>CUCEI MART: Acta Constitutiva</em> [Documento interno de proyecto universitario]. Centro Universitario de Ciencias Exactas e Ingenierías, Universidad de Guadalajara.</p>
+
+  <p class="bib-entry">NEXCODE. (2025). <em>CUCEI MART: Base de Datos PostgreSQL — Manual de DDL, Consultas y Administración</em> [Documento técnico v1.0]. Centro Universitario de Ciencias Exactas e Ingenierías, Universidad de Guadalajara.</p>
+
+  <p class="bib-entry">NEXCODE. (2025). <em>CUCEI MART: Documento de Diseño</em> [Documento de proyecto universitario v1.0]. Centro Universitario de Ciencias Exactas e Ingenierías, Universidad de Guadalajara.</p>
+
+  <p class="bib-entry">NEXCODE. (2025). <em>CUCEI MART — Plataforma de e-commerce universitario: README</em> [Repositorio de software]. GitHub. https://github.com/NEXCODEMX/cuceimart</p>
+
+  <p class="bib-entry">Osterwalder, A., e Pigneur, Y. (2011). <em>Generación de modelos de negocio: Un manual para visionarios, revolucionarios y retadores</em> (3.ª ed.). Deusto.</p>
+
+  <p class="bib-entry">Secretaría de Administración Tributaria. (2024). <em>Régimen Simplificado de Confianza para personas físicas (RESICO-PF)</em>. SAT. https://www.sat.gob.mx/personas/resico</p>
+
+  <p class="bib-entry">Secretaría de Administración Tributaria. (2024). <em>Comprobante Fiscal Digital por Internet (CFDI) versión 4.0</em>. SAT. https://www.sat.gob.mx/consultas/92764/comprobantes-fiscales-digitales-por-internet</p>
+
+  <p class="bib-entry">Secretaría de Economía. (2024). <em>Sistema de Apertura Rápida de Empresas (SARE) — Jalisco</em>. Gobierno de México. https://www.gob.mx/se/acciones-y-programas/sare-sistema-de-apertura-rapida-de-empresas</p>
+
+  <p class="bib-entry">Secretaría de Salud Jalisco. (2024). <em>Requisitos sanitarios para establecimientos comerciales en Jalisco</em>. Gobierno del Estado de Jalisco. https://ssj.jalisco.gob.mx/tramites</p>
+
+</div>
+
+</body>
+</html>
